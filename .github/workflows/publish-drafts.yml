@@ -1,0 +1,101 @@
+name: Publish Drafts (prepare PR)
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  prepare-publish:
+    if: contains(github.event.pull_request.labels.*.name, 'publish')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Fetch PR branch
+        run: |
+          PR=${{ github.event.pull_request.number }}
+          git fetch origin +refs/pull/${PR}/head:pr-${PR}
+          git checkout pr-${PR}
+
+      - name: Create publish branch from main
+        run: |
+          PR=${{ github.event.pull_request.number }}
+          git fetch origin main
+          git checkout -b publish/pr-${PR} origin/main
+
+      - name: Copy drafts into posts
+        run: |
+          PR=${{ github.event.pull_request.number }}
+          mkdir -p tmp/pr-${PR}
+          # List draft files in the PR branch
+          git ls-tree -r --name-only pr-${PR} src/blog/drafts || true > tmp/files.txt
+          if [ -s tmp/files.txt ]; then
+            while IFS= read -r f; do
+              echo "Processing $f"
+              dest="src/blog/posts/$(basename "$f")"
+              mkdir -p "$(dirname "$dest")"
+              git show pr-${PR}:$f > "$dest"
+              git add "$dest"
+            done < tmp/files.txt
+            git commit -m "Publish drafts from PR #${PR}"
+          else
+            echo "No drafts found in PR ${PR}; exiting."
+            exit 0
+          fi
+
+      - name: Push publish branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BR=publish/pr-${{ github.event.pull_request.number }}
+          git push origin HEAD:${BR}
+
+      - name: Build site artifact
+        run: |
+          npm ci
+          npm run build
+        continue-on-error: true
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview-pr-${{ github.event.pull_request.number }}
+          path: _site
+
+      - name: Create PR to main for published content
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Publish drafts from PR #${{ github.event.pull_request.number }}"
+          branch: publish/pr-${{ github.event.pull_request.number }}
+          title: "Publish: Drafts from PR #${{ github.event.pull_request.number }}"
+          body: |-
+            This PR was created automatically by the publish workflow. It contains published copies of the drafts originally submitted in PR #${{ github.event.pull_request.number }}.
+
+      - name: Comment on original PR with publish link
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const number = pr.number;
+            const publishBranch = 'publish/pr-' + number;
+            const createResponse = await github.rest.pulls.create({ owner, repo, head: publishBranch, base: 'main', title: 'Publish: Drafts from PR #' + number });
+            const publishPrUrl = createResponse.data.html_url;
+            const commentBody = 'A publish PR has been created: ' + publishPrUrl + '\n\nPlease review and merge to publish the content.';
+            await github.rest.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
