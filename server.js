@@ -37,18 +37,51 @@ app.get('*', (req, res) => {
   });
 });
 
-function startServer(port) {
-  const server = app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
-  server.on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-      console.warn(`Port ${port} in use, trying ${port + 1}...`);
-      startServer(port + 1);
-    } else {
-      console.error('Server error:', err);
-      process.exit(1);
+// Try to find an open port starting at `startPort`. If many ports are busy,
+// fall back to an ephemeral port (0) assigned by the OS.
+async function findAndListen(startPort, maxAttempts = 50) {
+  let attempt = 0;
+  let port = Number(startPort);
+
+  while (attempt < maxAttempts) {
+    try {
+      const server = await new Promise((resolve, reject) => {
+        const s = app.listen(port, '0.0.0.0', () => resolve(s));
+        s.on('error', (err) => reject(err));
+      });
+      return server;
+    } catch (err) {
+      if (err && (err.code === 'EADDRINUSE' || err.code === 'EACCES')) {
+        console.warn(`Port ${port} unavailable (attempt ${attempt + 1}/${maxAttempts}). Trying ${port + 1}...`);
+        port += 1;
+        attempt += 1;
+        continue;
+      }
+      // Unexpected error — rethrow
+      throw err;
     }
+  }
+
+  // If we exhausted the range, fall back to ephemeral port 0
+  console.warn(`Exhausted ${maxAttempts} attempts — falling back to ephemeral port (0).`);
+  const server = await new Promise((resolve, reject) => {
+    const s = app.listen(0, '0.0.0.0', () => resolve(s));
+    s.on('error', (err) => reject(err));
   });
+  return server;
 }
 
-const port = Number(process.env.PORT || 3000);
-startServer(port);
+const configuredPort = Number(process.env.PORT || 3000);
+(async () => {
+  try {
+    const server = await findAndListen(configuredPort, 100);
+    const addr = server.address();
+    const boundPort = addr && addr.port ? addr.port : configuredPort;
+    console.log(`Server running at http://localhost:${boundPort}`);
+    // Also show full listen address (useful in containers)
+    if (addr && addr.address) console.log(`Listening on ${addr.address}:${addr.port}`);
+  } catch (err) {
+    console.error('Failed to start server:', err);
+    process.exit(1);
+  }
+})();
