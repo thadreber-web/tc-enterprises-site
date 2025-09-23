@@ -1,0 +1,37 @@
+---
+layout: base.njk
+title: Home
+---
+
+<section class="hero">
+  <h1>Precision engraving & automation for teams that move fast</h1>
+  <p class="lead">We digitize logos, optimize laser workflows, and build the software glue that keeps your orders flowing—from intake to engraved and shipped.</p>
+  <p><a class="btn" href="/contact/">Get a quote →</a></p>
+</section>
+
+<section>
+  <h2>What we do</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Logo digitization</h3>
+      <p>Fast turnaround from messy files to clean EPS optimized for laser engraving (stroke‑only, no fills, compound paths optional).</p>
+    </article>
+    <article class="card">
+      <h3>Laser workflow tuning</h3>
+      <p>Throughput audits, maintenance plans, and settings baselines tailored for production engraving environments.</p>
+    </article>
+    <article class="card">
+      <h3>Automation & SaaS</h3>
+      <p>We build catalog systems, chatbots, and order tools that reduce errors and speed up approvals.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Recent posts</h2>
+  <ul>
+    {% for post in collections.posts | reverse | slice(0,3) %}
+      <li><a href="{{ post.url }}">{{ post.data.title }}</a> — <small>{{ post.date | date('yyyy-LL-dd') }}</small></li>
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,30 @@
+name: Create PR from Drafts
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *' # daily at 08:00 UTC
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find draft posts
+        run: |
+          echo "Looking for drafts in src/blog/drafts or content/drafts"
+          DRAFTS=$(git ls-files 'src/blog/drafts/*' 'content/drafts/*' || true)
+          if [ -z "${DRAFTS}" ]; then
+            echo "No drafts found. Exiting."
+            exit 0
+          fi
+          echo "Drafts found:$DRAFTS"
+      - name: Create branch and PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Review draft blog posts"
+          branch: review/drafts-$(date +%Y%m%d%H%M%S)
+          title: "Blog drafts for review"
+          body: |-
+            Automatic PR containing blog drafts for editorial review. Please approve or edit before merging.

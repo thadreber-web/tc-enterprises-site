@@ -1,0 +1,66 @@
+---
+layout: base.njk
+title: Contact
+---
+
+{% block content %}
+<h1>Contact</h1>
+<p>Have a logo, an engraving run, or a workflow to speed up? Reach out—no phone required.</p>
+
+<form id="contact-form" method="post" action="/api/contact">
+  <label>Name</label>
+  <input name="name" required />
+
+  <label>Email</label>
+  <input type="email" name="email" required />
+
+  <label>Message</label>
+  <textarea name="message" rows="6" required></textarea>
+
+  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" />
+
+  <button type="submit">Send</button>
+  <p id="contact-status" class="lead"></p>
+</form>
+
+<script>
+  // Optional reCAPTCHA v3
+  (function() {
+    const siteKey = "{{ env.RECAPTCHA_SITE_KEY or '' }}";
+    if (!siteKey) return; // no-op if not set
+    const s = document.createElement('script');
+    s.src = "https://www.google.com/recaptcha/api.js?render=" + encodeURIComponent(siteKey);
+    s.async = true; s.onload = () => {
+      grecaptcha.ready(() => {
+        grecaptcha.execute(siteKey, {action: 'contact'}).then(token => {
+          const el = document.getElementById('g-recaptcha-response');
+          if (el) el.value = token;
+        });
+      });
+    };
+    document.head.appendChild(s);
+  })();
+
+  // Ajax submit to Vercel function
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('contact-status');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = "Sending…";
+    const data = new FormData(form);
+    const body = Object.fromEntries(data.entries());
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(body)
+      });
+      const json = await res.json();
+      status.textContent = json.ok ? "Thanks! I’ll reply shortly." : (json.error || "Something went wrong.");
+      if (json.ok) form.reset();
+    } catch (err) {
+      status.textContent = "Network error.";
+    }
+  });
+</script>
+{% endblock %}

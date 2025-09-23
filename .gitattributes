@@ -1,0 +1,22 @@
+# Auto detect text files and normalize line endings
+* text=auto
+
+# Ensure common text files are normalized
+*.md text
+*.html text
+*.css text
+*.js text
+*.json text
+
+# Treat images as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+
+# Keep scripts with LF endings
+*.sh text eol=lf
+
+# Proprietary files
+LICENSE text

@@ -1,0 +1,26 @@
+:root { --accent: #0ea5e9; --bg:#0b1220; --panel:#121a2a; --text:#e6edf3; --muted:#9fb3c8; }
+*{box-sizing:border-box} html,body{margin:0;padding:0;color:var(--text);background:#0b1220;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial}
+.container{max-width:980px;margin:0 auto;padding:1.25rem}
+.site-header{background:#0d1526;border-bottom:1px solid #1f2b40;position:sticky;top:0;z-index:10}
+.flex{display:flex}.between{justify-content:space-between}.vcenter{align-items:center}
+.brand{font-weight:700;text-decoration:none;color:var(--text)}
+.nav a{color:var(--text);opacity:.9;text-decoration:none;margin:0 .75rem}
+.nav a.btn{padding:.5rem .9rem;border:1px solid var(--accent);border-radius:.5rem}
+.hero{padding:3rem 0}
+.hero h1{font-size:2.2rem;margin:.2rem 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.5rem 0}
+.card{background:var(--panel);border:1px solid #203049;border-radius:1rem;padding:1rem}
+.lead{color:var(--muted)}
+.site-footer{border-top:1px solid #1f2b40;background:#0d1526;margin-top:3rem}
+input,textarea,button{font:inherit}
+input,textarea{width:100%;padding:.65rem;border-radius:.6rem;border:1px solid #24334d;background:#0c1527;color:var(--text)}
+button{padding:.6rem 1rem;border-radius:.6rem;border:1px solid #24334d;background:#121c31;color:var(--text);cursor:pointer}
+button:hover{border-color:var(--accent)}
+/* Chat widget */
+#chat-fab{position:fixed;right:1rem;bottom:1rem;border-radius:50%;width:56px;height:56px}
+#chat-panel{position:fixed;right:1rem;bottom:4.5rem;width:320px;max-height:60vh;background:#0e1728;border:1px solid #22314a;border-radius:.75rem;display:flex;flex-direction:column}
+.chat-header{display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem;border-bottom:1px solid #22314a}
+.chat-log{padding:.75rem;overflow:auto;flex:1}
+.msg{margin:.35rem 0;padding:.5rem .65rem;border-radius:.6rem}
+.msg.user{background:#0b2540}
+.msg.bot{background:#0b2033}
