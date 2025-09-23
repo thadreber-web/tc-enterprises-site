@@ -71,7 +71,7 @@ async function findAndListen(startPort, maxAttempts = 50) {
   return server;
 }
 
-const configuredPort = Number(process.env.PORT || 3000);
+const configuredPort = Number(process.env.PORT || 3005);
 (async () => {
   try {
     const server = await findAndListen(configuredPort, 100);
