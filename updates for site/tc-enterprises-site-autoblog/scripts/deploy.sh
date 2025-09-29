@@ -35,7 +35,12 @@ fi
 # Install dependencies and build
 echo -e "${YELLOW}🔨 Building application...${NC}"
 cd "$REPO_DIR"
-npm ci
+if [ -f "package-lock.json" ]; then
+    npm ci
+else
+    echo -e "${YELLOW}📦 package-lock.json not found, running npm install...${NC}"
+    npm install
+fi
 npm run build
 
 # Create backup of current deployment if it exists
