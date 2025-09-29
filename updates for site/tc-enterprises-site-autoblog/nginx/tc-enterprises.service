@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=www-data
 Group=www-data
-WorkingDirectory=/var/www/tc-enterprises.com/current
+WorkingDirectory=/var/www/tc-enterprises.com/updates for site/tc-enterprises-site-autoblog
 Environment=NODE_ENV=production
 Environment=PORT=3000
 # Add your environment variables below (uncomment and fill in):
