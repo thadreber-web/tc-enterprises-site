@@ -35,7 +35,7 @@ fi
 # Install dependencies and build
 echo -e "${YELLOW}🔨 Building application...${NC}"
 cd "$REPO_DIR"
-npm ci --production=false
+npm ci
 npm run build
 
 # Create backup of current deployment if it exists
