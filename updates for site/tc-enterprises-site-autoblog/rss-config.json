@@ -1,0 +1,88 @@
+{
+  "feeds": [
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "categories": ["technology", "startups", "ai", "automation"]
+    },
+    {
+      "name": "TechCrunch Startups",
+      "url": "https://techcrunch.com/startups/feed/",
+      "categories": ["startups", "small business", "technology"]
+    },
+    {
+      "name": "VentureBeat",
+      "url": "https://venturebeat.com/feed/",
+      "categories": ["technology", "ai", "business"]
+    },
+    {
+      "name": "ZDNet",
+      "url": "https://www.zdnet.com/news/rss.xml",
+      "categories": ["technology", "business", "software"]
+    },
+    {
+      "name": "Ars Technica",
+      "url": "https://feeds.arstechnica.com/arstechnica/index",
+      "categories": ["technology", "science", "software"]
+    },
+    {
+      "name": "DevOps.com",
+      "url": "https://devops.com/feed/",
+      "categories": ["devops", "automation", "software"]
+    },
+    {
+      "name": "TechRepublic",
+      "url": "https://www.techrepublic.com/rssfeeds/articles/",
+      "categories": ["technology", "business", "software"]
+    },
+    {
+      "name": "CIO.com",
+      "url": "https://www.cio.com/index.rss",
+      "categories": ["technology", "business", "leadership"]
+    }
+  ],
+  "keywords": [
+    "automation",
+    "workflow automation",
+    "business automation",
+    "process automation",
+    "AI automation",
+    "artificial intelligence",
+    "machine learning",
+    "AI assistants",
+    "workflow optimization",
+    "productivity tools",
+    "developer productivity",
+    "software development",
+    "custom software",
+    "small business technology",
+    "digital transformation",
+    "business process",
+    "workflow management",
+    "automation tools",
+    "AI tools",
+    "productivity software",
+    "business software",
+    "enterprise software",
+    "SaaS",
+    "cloud computing",
+    "API integration",
+    "no-code",
+    "low-code",
+    "rapid prototyping"
+  ],
+  "excludeKeywords": [
+    "politics",
+    "cryptocurrency",
+    "blockchain",
+    "gaming",
+    "sports",
+    "entertainment",
+    "health",
+    "finance",
+    "consumer electronics",
+    "social media",
+    "mobile apps",
+    "web development"
+  ]
+}

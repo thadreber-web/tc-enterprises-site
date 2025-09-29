@@ -1,0 +1,30 @@
+T&C Enterprises Brand Quick Sheet
+=================================
+
+Logo Variants:
+- Primary: Hexagon + Company Name + Tagline
+- Secondary: Hexagon only (icon)
+- Monochrome: Black/white version for engraving, watermark, etc.
+
+Color Palette (Suggested):
+- Charcoal Black: #1C1C1C (Primary)
+- White: #FFFFFF (Contrast)
+- Optional Accents (you may adjust later):
+  - Laser Red: #E63946
+  - Electric Blue: #457B9D
+  - Vibrant Orange: #F4A261
+
+Typography:
+- Headings: Montserrat Bold (Modern, geometric sans-serif)
+- Body: Open Sans Regular (Clean, legible)
+
+Usage Guidelines:
+- Keep clear space around the hexagon equal to the height of the 'T' in the wordmark.
+- Minimum size: 32px height for digital, 0.5in for print.
+- Tagline can be dropped in small applications.
+
+Applications:
+- Website header: Use primary logo.
+- Social icons & favicon: Use secondary hex-only logo.
+- Engraving/watermark: Use monochrome version.
+

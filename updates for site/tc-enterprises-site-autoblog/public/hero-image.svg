@@ -1,0 +1,17 @@
+<svg width="400" height="320" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="320" rx="12" fill="#2D3748"/>
+<!-- Complex side -->
+<path d="M20 40 Q 80 120, 150 80 T 200 160" stroke="#718096" stroke-width="2" fill="none" stroke-linecap="round"/>
+<path d="M30 100 Q 90 20, 160 120 T 200 160" stroke="#718096" stroke-width="2" fill="none" stroke-linecap="round"/>
+<path d="M40 280 Q 100 200, 170 240 T 200 160" stroke="#718096" stroke-width="2" fill="none" stroke-linecap="round"/>
+<path d="M50 180 Q 110 300, 180 200 T 200 160" stroke="#718096" stroke-width="2" fill="none" stroke-linecap="round"/>
+<path d="M20 240 Q 80 180, 150 280 T 200 160" stroke="#718096" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+<!-- Clear side -->
+<path d="M200 150 H 380" stroke="#319795" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M200 160 H 380" stroke="#ED8936" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M200 170 H 380" stroke="#4FD1C5" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+<!-- Central point -->
+<circle cx="200" cy="160" r="8" fill="#FFFFFF"/>
+</svg>

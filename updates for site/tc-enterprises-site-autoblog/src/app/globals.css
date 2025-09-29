@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Performance optimizations */
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-bg-main text-text-main antialiased;
+  }
+
+  /* Improved typography scale */
+  h1 { @apply text-4xl md:text-5xl font-bold leading-tight; }
+  h2 { @apply text-3xl md:text-4xl font-bold leading-tight; }
+  h3 { @apply text-2xl md:text-3xl font-semibold leading-snug; }
+  h4 { @apply text-xl md:text-2xl font-semibold leading-snug; }
+  h5 { @apply text-lg md:text-xl font-medium leading-normal; }
+  h6 { @apply text-base md:text-lg font-medium leading-normal; }
+
+  p { @apply leading-relaxed; }
+
+  /* Enhanced loading states */
+  .loading-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Custom animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg text-white font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:scale-95 bg-primary hover:bg-primary/90 focus:ring-2 focus:ring-primary/50 focus:outline-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white dark:bg-transparent dark:text-secondary dark:hover:bg-secondary dark:hover:text-text-main dark:border-secondary transition-all duration-200 font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 active:scale-95 focus:ring-2 focus:ring-primary/50 focus:outline-none;
+  }
+
+  .card {
+    @apply bg-bg-surface dark:bg-bg-surface-dark rounded-xl shadow-lg hover:shadow-xl p-6 transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-white/10;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-white shadow-sm;
+  }
+  .badge-primary { @apply bg-primary; }
+  .badge-secondary { @apply bg-secondary; }
+  .badge-accent { @apply bg-accent; }
+
+  /* Enhanced form elements */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-bg-surface-dark text-text-main dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none transition-all duration-200;
+  }
+
+  .form-textarea {
+    @apply form-input resize-none;
+  }
+
+  /* Improved link styles */
+  .link-primary {
+    @apply text-primary hover:text-primary/80 font-medium transition-colors duration-200;
+  }
+
+  /* Section spacing utilities */
+  .section-spacing {
+    @apply py-16 md:py-20;
+  }
+
+  .container-spacing {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  /* Enhanced prose styles for blog content */
+  .prose {
+    @apply text-text-muted dark:text-gray-300 leading-relaxed;
+  }
+
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    @apply text-text-main dark:text-white font-bold scroll-mt-24;
+  }
+
+  .prose h1 { @apply text-3xl md:text-4xl mb-6; }
+  .prose h2 { @apply text-2xl md:text-3xl mt-8 mb-4; }
+  .prose h3 { @apply text-xl md:text-2xl mt-6 mb-3; }
+  .prose h4 { @apply text-lg md:text-xl mt-4 mb-2; }
+
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  .prose ul, .prose ol {
+    @apply mb-4 pl-6;
+  }
+
+  .prose li {
+    @apply mb-2;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-primary pl-4 italic my-6 text-text-muted dark:text-gray-300;
+  }
+
+  .prose code {
+    @apply bg-bg-surface dark:bg-bg-surface-dark px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .prose pre {
+    @apply bg-bg-surface dark:bg-bg-surface-dark p-4 rounded-lg overflow-x-auto my-6;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+
+  .prose a {
+    @apply text-primary hover:text-primary/80 underline transition-colors;
+  }
+
+  .prose img {
+    @apply rounded-lg shadow-lg my-6;
+  }
+
+  .prose hr {
+    @apply border-gray-200 dark:border-gray-700 my-8;
+  }
+}
+
+/* Dark theme overrides */
+@layer base {
+  .dark body {
+    @apply bg-text-main text-bg-main;
+  }
+}
+
+@layer components {
+  .dark .card {
+    @apply bg-bg-surface-dark border-white/10 hover:border-white/20;
+  }
+
+  .dark .btn-secondary {
+    @apply border-secondary text-secondary hover:bg-secondary hover:text-text-main;
+  }
+
+  .dark footer {
+    @apply bg-text-main;
+  }
+
+  .dark .form-input {
+    @apply bg-bg-surface-dark border-gray-600 text-white placeholder-gray-400;
+  }
+}
+
+/* Keyframe definitions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,36 @@
+name: E2E UI Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Start server
+        run: |
+          nohup npm start &
+          # wait for server to bind
+          for i in {1..30}; do
+            if curl -sSf http://localhost:3011/ >/dev/null; then break; fi
+            sleep 1
+          done
+      - name: Run e2e test
+        run: npm run test:e2e
+      - name: Upload server log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-log
+          path: logs/server.out

@@ -1,0 +1,29 @@
+[Unit]
+Description=T&C Enterprises Next.js Application
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/tc-enterprises.com/current
+Environment=NODE_ENV=production
+Environment=PORT=3000
+# Add your environment variables here (or use EnvironmentFile)
+# EnvironmentFile=/var/www/tc-enterprises.com/.env
+ExecStart=/usr/bin/npm start
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=tc-enterprises-app
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ReadWritePaths=/var/www/tc-enterprises.com
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
