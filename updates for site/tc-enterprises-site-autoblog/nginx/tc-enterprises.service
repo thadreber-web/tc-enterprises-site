@@ -9,8 +9,14 @@ Group=www-data
 WorkingDirectory=/var/www/tc-enterprises.com/current
 Environment=NODE_ENV=production
 Environment=PORT=3000
-# Add your environment variables here (or use EnvironmentFile)
-# EnvironmentFile=/var/www/tc-enterprises.com/.env
+# Add your environment variables below (uncomment and fill in):
+# Environment=SMTP_HOST=your-smtp-host
+# Environment=SMTP_PORT=587
+# Environment=SMTP_USER=your-email@domain.com
+# Environment=SMTP_PASS=your-password
+# Environment=SMTP_SECURE=false
+# Environment=CONTACT_TO=contact@tc-enterprises.com
+# Environment=CONTACT_FROM="T&C Website <contact@tc-enterprises.com>"
 ExecStart=/usr/bin/npm start
 Restart=always
 RestartSec=10
