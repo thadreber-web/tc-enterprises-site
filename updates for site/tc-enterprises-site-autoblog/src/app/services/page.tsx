@@ -41,10 +41,10 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="text-center py-16">
         <p className="text-sm font-bold uppercase text-primary tracking-widest mb-4">Services</p>
-        <h1 className="text-4xl md:text-6xl font-bold text-text-main dark:text-white mb-6 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-bold text-foreground dark:text-foreground-dark mb-6 leading-tight">
           From stroke-only logos to <span className="text-primary">grounded automation</span>
         </h1>
-        <p className="max-w-4xl mx-auto text-xl text-text-muted dark:text-gray-300 leading-relaxed">
+        <p className="max-w-4xl mx-auto text-xl text-muted dark:text-muted-foreground leading-relaxed">
           We help engraving, real estate, and specialty operations teams keep work moving. Artwork stays clean, catalogs stay organized, and automation projects launch with clear guardrails.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
@@ -56,26 +56,26 @@ export default function ServicesPage() {
       {/* Core Focus Areas */}
       <section className="py-16">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-text-main dark:text-white mb-12">Core focus areas</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground dark:text-foreground-dark mb-12">Core focus areas</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300">
               <div className="text-4xl mb-4">🎨</div>
               <h3 className="text-xl font-bold text-primary mb-3">Artwork prep</h3>
-              <p className="text-text-muted dark:text-gray-300 leading-relaxed">
+              <p className="text-muted dark:text-gray-300 leading-relaxed">
                 Send the rough input, get back laser-ready EPS. We keep editable AI files on hand so revisions are fast.
               </p>
             </div>
             <div className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300">
               <div className="text-4xl mb-4">📚</div>
               <h3 className="text-xl font-bold text-primary mb-3">Hybrid logo catalog</h3>
-              <p className="text-text-muted dark:text-gray-300 leading-relaxed">
+              <p className="text-muted dark:text-gray-300 leading-relaxed">
                 A searchable, permission-aware library that links proofs, approvals, and download history.
               </p>
             </div>
             <div className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300">
               <div className="text-4xl mb-4">🤖</div>
               <h3 className="text-xl font-bold text-primary mb-3">Automation & chat</h3>
-              <p className="text-text-muted dark:text-gray-300 leading-relaxed">
+              <p className="text-muted dark:text-gray-300 leading-relaxed">
                 Grounded agents that answer FAQs, quote pricing anchors, and hand off to humans through Discord when needed.
               </p>
             </div>
@@ -87,8 +87,8 @@ export default function ServicesPage() {
       <section id="pricing" className="py-16">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-text-main dark:text-white mb-4">Engrave-ready artwork pricing</h2>
-            <p className="text-xl text-text-muted dark:text-gray-300 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-foreground-dark mb-4">Engrave-ready artwork pricing</h2>
+            <p className="text-xl text-muted dark:text-gray-300 max-w-2xl mx-auto">
               Choose the tier that matches complexity. When in doubt, we round up so production stays on schedule.
             </p>
           </div>
@@ -110,16 +110,16 @@ export default function ServicesPage() {
                 )}
 
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-text-main dark:text-white mb-2">{tier.name}</h3>
+                  <h3 className="text-xl font-bold text-foreground dark:text-foreground-dark mb-2">{tier.name}</h3>
                   <div className="text-3xl font-bold text-primary mb-1">{tier.price}</div>
-                  <p className="text-sm text-text-muted dark:text-gray-400">{tier.description}</p>
+                  <p className="text-sm text-muted dark:text-gray-400">{tier.description}</p>
                 </div>
 
                 <div className="mb-6">
-                  <div className="text-sm font-medium text-text-main dark:text-white mb-2">Turnaround: {tier.turnaround}</div>
+                  <div className="text-sm font-medium text-foreground dark:text-foreground-dark mb-2">Turnaround: {tier.turnaround}</div>
                   <ul className="space-y-2">
                     {tier.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-sm text-text-muted dark:text-gray-300">
+                      <li key={feature} className="flex items-center text-sm text-muted dark:text-gray-300">
                         <span className="text-primary mr-2">✓</span>
                         {feature}
                       </li>
@@ -142,7 +142,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-sm text-text-muted dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-sm text-muted dark:text-gray-400 max-w-2xl mx-auto">
               *Provider-caused fixes are free within three business days. Updates after approval are priced as new work.
             </p>
           </div>
@@ -152,16 +152,16 @@ export default function ServicesPage() {
       {/* Software & Automation */}
       <section className="py-16">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-text-main dark:text-white mb-12">Software and automation anchors</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground dark:text-foreground-dark mb-12">Software and automation anchors</h2>
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
-              <p className="text-lg text-text-muted dark:text-gray-300 leading-relaxed">
+              <p className="text-lg text-muted dark:text-gray-300 leading-relaxed">
                 Custom builds start with a scoped discovery sprint. Once we understand your workflow we map milestones, integrations, and budget.
               </p>
 
               <div className="card">
                 <h3 className="text-xl font-bold text-primary mb-4">Pricing Structure</h3>
-                <ul className="space-y-3 text-text-muted dark:text-gray-300">
+                <ul className="space-y-3 text-muted dark:text-gray-300">
                   <li className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700">
                     <span>Discovery and technical plan</span>
                     <span className="font-semibold text-primary">from $300</span>
@@ -196,29 +196,29 @@ export default function ServicesPage() {
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5 border border-secondary/10">
                   <span className="text-2xl">🏠</span>
                   <div>
-                    <h4 className="font-semibold text-text-main dark:text-white">RealtyGenius</h4>
-                    <p className="text-sm text-text-muted dark:text-gray-300">Transaction workflows for real estate teams</p>
+                    <h4 className="font-semibold text-foreground dark:text-foreground-dark">RealtyGenius</h4>
+                    <p className="text-sm text-muted dark:text-gray-300">Transaction workflows for real estate teams</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5 border border-secondary/10">
                   <span className="text-2xl">🧶</span>
                   <div>
-                    <h4 className="font-semibold text-text-main dark:text-white">Crochet Pattern Studio</h4>
-                    <p className="text-sm text-text-muted dark:text-gray-300">Pattern generation with guardrails</p>
+                    <h4 className="font-semibold text-foreground dark:text-foreground-dark">Crochet Pattern Studio</h4>
+                    <p className="text-sm text-muted dark:text-gray-300">Pattern generation with guardrails</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5 border border-secondary/10">
                   <span className="text-2xl">🛒</span>
                   <div>
-                    <h4 className="font-semibold text-text-main dark:text-white">CraftCart</h4>
-                    <p className="text-sm text-text-muted dark:text-gray-300">Storefront tooling with automated proofs</p>
+                    <h4 className="font-semibold text-foreground dark:text-foreground-dark">CraftCart</h4>
+                    <p className="text-sm text-muted dark:text-gray-300">Storefront tooling with automated proofs</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5 border border-secondary/10">
                   <span className="text-2xl">🚐</span>
                   <div>
-                    <h4 className="font-semibold text-text-main dark:text-white">RV Ops Stack</h4>
-                    <p className="text-sm text-text-muted dark:text-gray-300">Scheduling and maintenance for mobile service fleets</p>
+                    <h4 className="font-semibold text-foreground dark:text-foreground-dark">RV Ops Stack</h4>
+                    <p className="text-sm text-muted dark:text-gray-300">Scheduling and maintenance for mobile service fleets</p>
                   </div>
                 </div>
               </div>

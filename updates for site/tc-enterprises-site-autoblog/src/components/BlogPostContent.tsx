@@ -51,7 +51,7 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
             <span className="text-sm uppercase tracking-wide font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
               {post.meta.category}
             </span>
-            <span className="text-sm text-text-muted dark:text-gray-400 flex items-center">
+            <span className="text-sm text-muted dark:text-gray-400 flex items-center">
               <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -59,11 +59,11 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-text-main dark:text-white leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground dark:text-foreground-dark leading-tight mb-4">
             {post.meta.title}
           </h1>
 
-          <div className="flex items-center justify-between text-sm text-text-muted dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-6">
+          <div className="flex items-center justify-between text-sm text-muted dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-6">
             <time dateTime={post.meta.date}>
               {new Date(post.meta.date).toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -87,8 +87,8 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
               <span className="text-lg">👨‍💻</span>
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-text-main dark:text-white mb-1">T&C Enterprises Founder</h3>
-              <p className="text-sm text-text-muted dark:text-gray-300 mb-2">
+              <h3 className="font-semibold text-foreground dark:text-foreground-dark mb-1">T&C Enterprises Founder</h3>
+              <p className="text-sm text-muted dark:text-gray-300 mb-2">
                 Self-taught developer with CompTIA A+ certification and 13+ years in engraving operations. Combining technical expertise with practical business insights.
               </p>
               <div className="flex flex-wrap gap-2 text-xs">
@@ -102,14 +102,14 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
 
         {/* Article Content */}
         <div
-          className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-text-main dark:prose-headings:text-white prose-p:text-text-muted dark:prose-p:text-gray-300 prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-text-main dark:prose-strong:text-white prose-code:text-primary prose-pre:bg-bg-surface dark:prose-pre:bg-bg-surface-dark prose-blockquote:border-primary prose-blockquote:text-text-muted dark:prose-blockquote:text-gray-300"
+          className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-foreground dark:prose-headings:text-foreground-dark prose-p:text-muted dark:prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground dark:prose-strong:text-foreground-dark prose-code:text-primary prose-pre:bg-background dark:prose-pre:bg-background-dark prose-blockquote:border-primary prose-blockquote:text-muted dark:prose-blockquote:text-muted-foreground"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
 
         {/* Article Footer */}
         <footer className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between">
-            <div className="text-sm text-text-muted dark:text-gray-400">
+            <div className="text-sm text-muted dark:text-gray-400">
               Published on {new Date(post.meta.date).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',

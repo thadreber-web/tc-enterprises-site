@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Dependencies and Generate Post
         run: |
-          cd "updates for site/tc-enterprises-site-autoblog"
+          cd "updates-for-site/tc-enterprises-site-autoblog"
           npm install
           node ./scripts/generate-post.mjs
         env:

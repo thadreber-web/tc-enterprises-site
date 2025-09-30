@@ -127,13 +127,13 @@ export default function ChatWidget() {
   return (
     <>
       {/* Chat Panel */}
-      <div className={`fixed bottom-24 right-5 w-full max-w-sm rounded-lg border border-gray-200 bg-bg-surface dark:bg-bg-surface-dark shadow-lg flex-col ${isOpen ? 'flex' : 'hidden'}`}>
-        <div className="flex items-center justify-between border-b p-3 bg-bg-main">
-          <h3 className="font-bold text-text-main dark:text-white">Chat with us</h3>
+  <div className={`fixed bottom-24 right-5 w-full max-w-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-background dark:bg-background-dark shadow-lg flex-col ${isOpen ? 'flex' : 'hidden'}`}>
+        <div className="flex items-center justify-between border-b p-3 bg-background dark:bg-background-dark">
+          <h3 className="font-bold text-foreground dark:text-foreground-dark">Chat with us</h3>
           <div className="flex items-center gap-2">
             <button 
               onClick={exportConversation} 
-              className="text-text-muted hover:text-primary text-sm px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" 
+              className="text-muted hover:text-primary text-sm px-2 py-1 rounded hover:bg-muted/10 dark:hover:bg-muted/20" 
               title="Export conversation"
               aria-label="Export conversation as text file"
             >
@@ -141,13 +141,13 @@ export default function ChatWidget() {
             </button>
             <button 
               onClick={clearConversation} 
-              className="text-text-muted hover:text-red-500 text-sm px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" 
+              className="text-muted hover:text-red-500 text-sm px-2 py-1 rounded hover:bg-muted/10 dark:hover:bg-muted/20" 
               title="Clear conversation"
               aria-label="Clear conversation history"
             >
               🗑️
             </button>
-            <button onClick={() => setIsOpen(false)} className="text-text-muted hover:text-text-main dark:hover:text-white">&times;</button>
+            <button onClick={() => setIsOpen(false)} className="text-muted hover:text-foreground dark:hover:text-foreground-dark">&times;</button>
           </div>
         </div>
         
@@ -159,22 +159,22 @@ export default function ChatWidget() {
           </p>
         </div>
         
-        <div ref={logRef} className="flex-grow overflow-y-auto p-4 space-y-4 h-96 bg-bg-main">
+  <div ref={logRef} className="flex-grow overflow-y-auto p-4 space-y-4 h-96 bg-background dark:bg-background-dark custom-scrollbar">
           {history.map((msg, index) => (
             <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className={`rounded-lg px-4 py-2 max-w-xs text-white ${msg.role === 'user' ? 'bg-primary' : 'bg-secondary text-text-main dark:text-white'}`}>
+              <div className={`rounded-lg px-4 py-2 max-w-xs text-white ${msg.role === 'user' ? 'bg-primary dark:bg-primary-dark' : 'bg-secondary dark:bg-secondary-dark text-foreground dark:text-foreground-dark'}`}> 
                 {msg.text.split('\n').map((line, i) => <p key={i}>{line}</p>)}
               </div>
             </div>
           ))}
         </div>
-        <form onSubmit={handleSubmit} className="flex items-center border-t p-3 bg-bg-surface dark:bg-bg-surface-dark">
+  <form onSubmit={handleSubmit} className="flex items-center border-t p-3 bg-background dark:bg-background-dark">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask a question..."
-            className="flex-grow rounded-full border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent"
+            className="form-input flex-grow rounded-full"
             aria-label="Chat message input"
           />
           <button type="submit" className="ml-3 flex-shrink-0 rounded-full bg-accent px-4 py-2 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="Send message">

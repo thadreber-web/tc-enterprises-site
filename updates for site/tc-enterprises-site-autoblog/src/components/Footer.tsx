@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-text-main dark:bg-text-main text-white mt-16">
-      <div className="container-spacing section-spacing">
+  <footer className="bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark mt-16">
+      <div className="container section-spacing">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-1">
@@ -53,19 +53,12 @@ export default function Footer() {
               <p className="opacity-80">Mon–Fri, 9AM–5PM PT</p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/10">
-              <h4 className="font-medium mb-2 text-primary">Resources</h4>
-              <ul className="space-y-1 text-xs">
-                <li><Link href="/sitemap.xml" className="opacity-70 hover:opacity-100 transition-opacity">Sitemap</Link></li>
-                <li><Link href="/robots.txt" className="opacity-70 hover:opacity-100 transition-opacity">Robots</Link></li>
-                <li><Link href="/rss.xml" className="opacity-70 hover:opacity-100 transition-opacity">RSS Feed</Link></li>
-              </ul>
-            </div>
+            {/* Developer/SEO resources hidden from main footer */}
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10">
+  <div className="border-t border-gray-200 dark:border-white/10">
         <div className="container-spacing py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs opacity-70 text-center md:text-left">
@@ -74,6 +67,12 @@ export default function Footer() {
             <div className="flex items-center gap-6 text-xs opacity-70">
               <span>Built with ❤️ for creators</span>
             </div>
+          </div>
+          {/* Hidden developer/SEO resources */}
+          <div className="mt-4 text-xs opacity-40 text-center select-none">
+            <span className="mr-2"><Link href="/sitemap.xml">Sitemap</Link></span>
+            <span className="mr-2"><Link href="/robots.txt">Robots</Link></span>
+            <span><Link href="/rss.xml">RSS Feed</Link></span>
           </div>
         </div>
       </div>

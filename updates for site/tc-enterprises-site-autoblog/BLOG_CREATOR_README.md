@@ -57,7 +57,7 @@ crontab -e
 3. Set trigger to "Weekly" on Friday at 9:00 AM
 4. Set action to "Start a program"
 5. Program: `cmd.exe`
-6. Arguments: `/c cd "D:\TC-Enterprises\website\updates for site\tc-enterprises-site-autoblog" && npm run blog:schedule`
+6. Arguments: `/c cd "D:\TC-Enterprises\website\updates-for-site\tc-enterprises-site-autoblog" && npm run blog:schedule`
 
 ### Option 3: Manual Weekly Check
 Run this command every Friday:

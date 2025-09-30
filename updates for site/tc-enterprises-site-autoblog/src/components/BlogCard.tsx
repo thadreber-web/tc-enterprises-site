@@ -26,7 +26,7 @@ export default function BlogCard({ post }: BlogCardProps) {
         <span className="text-xs uppercase tracking-wide font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
           {post.category || 'General'}
         </span>
-        <span className="text-xs text-text-muted dark:text-gray-400 flex items-center">
+        <span className="text-xs text-muted dark:text-gray-400 flex items-center">
           <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -34,13 +34,13 @@ export default function BlogCard({ post }: BlogCardProps) {
         </span>
       </div>
 
-      <h3 className="text-xl font-semibold mb-3 text-text-main dark:text-white group-hover:text-primary transition-colors">
+      <h3 className="text-xl font-semibold mb-3 text-foreground dark:text-foreground-dark group-hover:text-primary transition-colors">
         <Link href={`/blog/${post.slug}`} className="hover:underline">
           {post.title}
         </Link>
       </h3>
 
-      <p className="text-text-muted dark:text-gray-300 leading-relaxed mb-4 line-clamp-3">
+      <p className="text-muted dark:text-muted-foreground leading-relaxed mb-4 line-clamp-3">
         {post.excerpt || 'No description available.'}
       </p>
 
@@ -50,12 +50,12 @@ export default function BlogCard({ post }: BlogCardProps) {
           <span className="text-sm">👨‍💻</span>
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-sm font-medium text-text-main dark:text-white">T&C Enterprises Founder</div>
-          <div className="text-xs text-text-muted dark:text-gray-400">CompTIA A+ Certified • 13+ Years Experience</div>
+          <div className="text-sm font-medium text-foreground dark:text-foreground-dark">T&C Enterprises Founder</div>
+          <div className="text-xs text-muted dark:text-muted-foreground">CompTIA A+ Certified • 13+ Years Experience</div>
         </div>
       </div>
 
-      <div className="flex items-center justify-between text-sm text-text-muted dark:text-gray-400">
+      <div className="flex items-center justify-between text-sm text-muted dark:text-muted-foreground">
         <time dateTime={post.date}>
           {new Date(post.date).toLocaleDateString('en-US', {
             year: 'numeric',

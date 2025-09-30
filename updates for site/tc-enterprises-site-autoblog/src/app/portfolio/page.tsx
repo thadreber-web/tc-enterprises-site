@@ -90,7 +90,7 @@ export default function Portfolio() {
                 <StatusBadge status={p.status} />
               </div>
 
-              <h3 className="text-xl font-semibold mb-3 text-text-main dark:text-white group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-semibold mb-3 text-foreground dark:text-foreground-dark group-hover:text-primary transition-colors">
                 {p.title}
               </h3>
 

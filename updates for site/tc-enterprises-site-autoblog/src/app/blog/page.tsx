@@ -25,7 +25,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { categ
     <section className="space-y-8">
       <header className="text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-primary dark:text-white">Expert Insights & Innovation</h1>
-        <p className="mt-4 text-xl text-text-muted dark:text-gray-300 max-w-3xl mx-auto">
+        <p className="mt-4 text-xl text-muted dark:text-gray-300 max-w-3xl mx-auto">
           Stay ahead with AI-assisted analysis on automation, SaaS development, engraving technology, and business innovation. Every post is human-approved for accuracy and value.
         </p>
         <div className="mt-6 flex justify-center gap-4">
@@ -46,7 +46,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { categ
           </div>
           <div>
             <h3 className="text-lg font-bold text-primary mb-2">Written by the Founder</h3>
-            <p className="text-text-muted dark:text-gray-300 mb-3">
+            <p className="text-muted dark:text-gray-300 mb-3">
               Self-taught developer with CompTIA A+ certification and 13+ years in engraving operations. Combining technical expertise with practical business insights to deliver actionable content for operations teams and developers.
             </p>
             <div className="flex flex-wrap gap-2 text-sm">
@@ -67,8 +67,8 @@ export default async function BlogPage({ searchParams }: { searchParams: { categ
         {filtered.length === 0 && (
           <div className="text-center py-12">
             <div className="text-6xl mb-4">📝</div>
-            <h3 className="text-xl font-semibold text-text-main dark:text-white mb-2">No posts found</h3>
-            <p className="text-text-muted dark:text-gray-300">Try selecting a different category or check back soon for new content.</p>
+            <h3 className="text-xl font-semibold text-main dark:text-white mb-2">No posts found</h3>
+            <p className="text-muted dark:text-gray-300">Try selecting a different category or check back soon for new content.</p>
           </div>
         )}
       </div>
@@ -76,7 +76,7 @@ export default async function BlogPage({ searchParams }: { searchParams: { categ
       {/* Newsletter/Subscription CTA */}
       <div className="card text-center max-w-2xl mx-auto">
         <h3 className="text-xl font-bold text-primary mb-3">Stay Updated</h3>
-        <p className="text-text-muted dark:text-gray-300 mb-4">
+        <p className="text-muted dark:text-gray-300 mb-4">
           Get notified when new posts are published. We cover practical insights for operations teams, developers, and business leaders.
         </p>
         <div className="flex justify-center gap-4">

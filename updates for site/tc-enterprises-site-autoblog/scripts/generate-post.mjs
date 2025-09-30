@@ -5,7 +5,7 @@ import Parser from 'rss-parser';
 
 // This script now has to be run from the root of the Next.js project.
 // We will add a script to the root package.json to handle this.
-const CWD = 'updates for site/tc-enterprises-site-autoblog';
+const CWD = 'updates-for-site/tc-enterprises-site-autoblog';
 const IDEAS_FILE_PATH = path.join(CWD, 'ideas.md');
 const OUTPUT_DIR = path.join(CWD, 'content/blog');
 const STAGING_DIR = path.join(CWD, 'content/blog/staging');
@@ -283,22 +283,23 @@ async function generateFromFile(filePath) {
   return callAI(prompt);
 }
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
-
-// Initialize Gemini AI
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-
 /**
  * Calls the AI API with a given prompt.
  */
 async function callAI(prompt) {
   try {
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    return response.text();
+    const response = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: prompt }),
+    });
+    if (!response.ok) {
+      throw new Error(`API request failed: ${await response.text()}`);
+    }
+    const data = await response.json();
+    return data.reply;
   } catch (error) {
-    console.error('Error calling Gemini API:', error);
+    console.error('Error calling AI generation API:', error);
     return null;
   }
 }

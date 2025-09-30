@@ -120,8 +120,8 @@ export default function ContactPage() {
     <div className="space-y-16">
       <section className="text-center py-12">
         <p className="text-sm font-bold uppercase text-primary tracking-widest">Contact</p>
-        <h1 className="text-4xl md:text-5xl font-bold text-text-main mt-2">Let us know what needs to run next</h1>
-        <p className="max-w-3xl mx-auto mt-4 text-lg text-text-muted">
+        <h1 className="text-4xl md:text-5xl font-bold text-main mt-2">Let us know what needs to run next</h1>
+        <p className="max-w-3xl mx-auto mt-4 text-lg text-muted">
           Send the artwork, automation idea, or support request. We reply within one business day and move fast when you mark it urgent.
         </p>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
@@ -136,7 +136,7 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left Column: Form */}
             <div className={`card ${isSuccess ? 'ring-2 ring-green-500/50 bg-green-50/50 dark:bg-green-900/10' : ''} transition-all duration-300`}>
-              <h2 className="text-3xl font-bold text-text-main dark:text-white mb-6">
+              <h2 className="text-3xl font-bold text-main dark:text-white mb-6">
                 {isSuccess ? 'Message Sent! 🎉' : 'Send a message'}
               </h2>
 
@@ -144,7 +144,7 @@ export default function ContactPage() {
                 <div className="space-y-4 animate-scale-in">
                   <div className="text-center">
                     <div className="text-6xl mb-4">✅</div>
-                    <p className="text-lg text-text-muted dark:text-gray-300 mb-4">
+                    <p className="text-lg text-muted dark:text-gray-300 mb-4">
                       We've received your message and will get back to you within one business day.
                     </p>
                     <Link href="/" className="btn-primary">
@@ -155,7 +155,7 @@ export default function ContactPage() {
               ) : (
                 <form id="contact-form" onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div>
-                    <label htmlFor="contact-name" className="block text-sm font-medium text-text-main dark:text-gray-200 mb-2">
+                    <label htmlFor="contact-name" className="block text-sm font-medium text-main dark:text-gray-200 mb-2">
                       Name *
                     </label>
                     <input
@@ -174,7 +174,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="contact-email" className="block text-sm font-medium text-text-main dark:text-gray-200 mb-2">
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-main dark:text-gray-200 mb-2">
                       Email *
                     </label>
                     <input
@@ -193,7 +193,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="contact-company" className="block text-sm font-medium text-text-main dark:text-gray-200 mb-2">
+                    <label htmlFor="contact-company" className="block text-sm font-medium text-main dark:text-gray-200 mb-2">
                       Company/Organization *
                     </label>
                     <input
@@ -212,7 +212,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="contact-project-type" className="block text-sm font-medium text-text-main dark:text-gray-200 mb-2">
+                    <label htmlFor="contact-project-type" className="block text-sm font-medium text-main dark:text-gray-200 mb-2">
                       Project Type *
                     </label>
                     <select
@@ -238,7 +238,7 @@ export default function ContactPage() {
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="contact-budget" className="block text-sm font-medium text-text-main dark:text-gray-200 mb-2">
+                      <label htmlFor="contact-budget" className="block text-sm font-medium text-main dark:text-gray-200 mb-2">
                         Budget Range *
                       </label>
                       <select
@@ -263,7 +263,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="contact-timeline" className="block text-sm font-medium text-text-main dark:text-gray-200 mb-2">
+                      <label htmlFor="contact-timeline" className="block text-sm font-medium text-main dark:text-gray-200 mb-2">
                         Timeline *
                       </label>
                       <select
@@ -288,7 +288,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="contact-message" className="block text-sm font-medium text-text-main dark:text-gray-200 mb-2">
+                    <label htmlFor="contact-message" className="block text-sm font-medium text-main dark:text-gray-200 mb-2">
                       Message *
                     </label>
                     <textarea
@@ -305,7 +305,7 @@ export default function ContactPage() {
                       {errors.message && (
                         <p className="text-sm text-red-600 dark:text-red-400">{errors.message}</p>
                       )}
-                      <p className="text-sm text-text-muted dark:text-gray-400 ml-auto">
+                      <p className="text-sm text-muted dark:text-gray-400 ml-auto">
                         {formData.message.length}/1000
                       </p>
                     </div>
@@ -346,7 +346,7 @@ export default function ContactPage() {
             <div className="space-y-8">
               <div className="card">
                 <h3 className="text-xl font-bold text-primary mb-3">Response times</h3>
-                <p className="text-text-muted dark:text-gray-300">
+                <p className="text-muted dark:text-gray-300">
                   Monday through Friday, 9am-5pm Pacific. Rush and after-hours work are available when you note it in the request.
                 </p>
               </div>
@@ -368,7 +368,7 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
-                  <ul className="space-y-2 text-text-muted dark:text-gray-300 text-sm">
+                  <ul className="space-y-2 text-muted dark:text-gray-300 text-sm">
                     <li className="flex items-start gap-2">
                       <span className="text-primary">✓</span>
                       <span>Send high-resolution images, vectors, or source files</span>
@@ -387,7 +387,7 @@ export default function ContactPage() {
 
               <div className="card">
                 <h3 className="text-xl font-bold text-primary mb-3">Need a person now?</h3>
-                <p className="text-text-muted dark:text-gray-300">
+                <p className="text-muted dark:text-gray-300">
                   Email <a href="mailto:contact@tc-enterprises.com" className="link-primary">contact@tc-enterprises.com</a> or for a faster response, join us on <a href="https://discord.com/channels/1420218161319645186/1420218161986408500" target="_blank" rel="noopener" className="link-primary">Discord</a>.
                 </p>
               </div>

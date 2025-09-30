@@ -1,3 +1,26 @@
+/* Custom scrollbar for chat widget */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #1a1a1a;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background: #1a1a1a;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 8px;
+}
+.dark .custom-scrollbar {
+  scrollbar-color: #374151 #111827;
+}
+.dark .custom-scrollbar::-webkit-scrollbar {
+  background: #111827;
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #374151;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,7 +46,7 @@
   }
 
   body {
-    @apply bg-bg-main text-text-main antialiased;
+    @apply bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark antialiased;
   }
 
   /* Improved typography scale */
@@ -67,11 +90,11 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white dark:bg-transparent dark:text-secondary dark:hover:bg-secondary dark:hover:text-text-main dark:border-secondary transition-all duration-200 font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 active:scale-95 focus:ring-2 focus:ring-primary/50 focus:outline-none;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white dark:bg-transparent dark:text-secondary dark:hover:bg-secondary dark:hover:text-foreground-dark dark:border-secondary transition-all duration-200 font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 active:scale-95 focus:ring-2 focus:ring-primary/50 focus:outline-none;
   }
 
   .card {
-    @apply bg-bg-surface dark:bg-bg-surface-dark rounded-xl shadow-lg hover:shadow-xl p-6 transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-white/10;
+    @apply bg-background dark:bg-background-dark rounded-xl shadow-lg hover:shadow-xl p-6 transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-white/10;
   }
 
   .badge {
@@ -83,7 +106,7 @@
 
   /* Enhanced form elements */
   .form-input {
-    @apply w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-bg-surface-dark text-text-main dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none transition-all duration-200;
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-background dark:bg-background-dark text-foreground dark:text-foreground-dark placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none transition-all duration-200;
   }
 
   .form-textarea {
@@ -106,11 +129,11 @@
 
   /* Enhanced prose styles for blog content */
   .prose {
-    @apply text-text-muted dark:text-gray-300 leading-relaxed;
+    @apply text-muted dark:text-muted-foreground leading-relaxed;
   }
 
   .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-    @apply text-text-main dark:text-white font-bold scroll-mt-24;
+    @apply text-foreground dark:text-foreground-dark font-bold scroll-mt-24;
   }
 
   .prose h1 { @apply text-3xl md:text-4xl mb-6; }
@@ -131,15 +154,15 @@
   }
 
   .prose blockquote {
-    @apply border-l-4 border-primary pl-4 italic my-6 text-text-muted dark:text-gray-300;
+    @apply border-l-4 border-primary pl-4 italic my-6 text-muted dark:text-muted-foreground;
   }
 
   .prose code {
-    @apply bg-bg-surface dark:bg-bg-surface-dark px-2 py-1 rounded text-sm font-mono;
+    @apply bg-background dark:bg-background-dark px-2 py-1 rounded text-sm font-mono;
   }
 
   .prose pre {
-    @apply bg-bg-surface dark:bg-bg-surface-dark p-4 rounded-lg overflow-x-auto my-6;
+    @apply bg-background dark:bg-background-dark p-4 rounded-lg overflow-x-auto my-6;
   }
 
   .prose pre code {
@@ -162,25 +185,25 @@
 /* Dark theme overrides */
 @layer base {
   .dark body {
-    @apply bg-text-main text-bg-main;
+    @apply bg-background-dark text-foreground-dark;
   }
 }
 
 @layer components {
   .dark .card {
-    @apply bg-bg-surface-dark border-white/10 hover:border-white/20;
+    @apply bg-background-dark border-white/10 hover:border-white/20;
   }
 
   .dark .btn-secondary {
-    @apply border-secondary text-secondary hover:bg-secondary hover:text-text-main;
+    @apply border-secondary text-secondary hover:bg-secondary hover:text-foreground-dark;
   }
 
   .dark footer {
-    @apply bg-text-main;
+    @apply bg-background-dark;
   }
 
   .dark .form-input {
-    @apply bg-bg-surface-dark border-gray-600 text-white placeholder-gray-400;
+    @apply bg-background-dark border-gray-600 text-white placeholder-gray-400;
   }
 }
 
