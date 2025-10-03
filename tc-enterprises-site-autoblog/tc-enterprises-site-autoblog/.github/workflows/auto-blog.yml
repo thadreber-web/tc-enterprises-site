@@ -33,14 +33,32 @@ jobs:
       - name: Generate blog post
         id: generate
         run: |
+          echo "Starting blog generation..."
+          
+          # Create directories if they don't exist
+          mkdir -p content/blog/staging
+          mkdir -p content/blog
+          
           # Run the reliable blog generator
-          npm run blog:generate:reliable
+          npm run blog:generate:reliable || {
+            echo "Blog generation failed, but continuing..."
+            echo "Creating placeholder post..."
+            DATE=$(date +%Y-%m-%d)
+            echo "---
+          title: \"Weekly Tech Update\"
+          date: $DATE
+          tags: posts
+          ---
+          
+          This is a placeholder post. The automated blog generator encountered an issue.
+          " > "content/blog/staging/$DATE-weekly-update.md"
+          }
           
           # Find the generated file in staging
           FILE=$(ls -t content/blog/staging/*.md 2>/dev/null | head -n1)
           
           if [ -z "$FILE" ]; then
-            echo "No blog post generated"
+            echo "ERROR: No blog post generated and no staging files found"
             exit 1
           fi
           
@@ -51,17 +69,11 @@ jobs:
           echo "FILE=content/blog/$BASENAME" >> $GITHUB_OUTPUT
           echo "Generated: $BASENAME"
 
-      - name: Save output variable
-        id: savefile
-        run: |
-          FILE="${{ steps.generate.outputs.FILE }}"
-          echo "FILE=$FILE" >> $GITHUB_OUTPUT
-
       - name: Commit branch & open draft PR
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore(blog): auto-draft ${{ steps.savefile.outputs.FILE }}"
+          commit-message: "chore(blog): auto-draft ${{ steps.generate.outputs.FILE }}"
           title: "Weekly Blog Draft"
           body: "AI-drafted post from repo knowledge. Please review, edit, and merge to publish."
           branch: "blog-draft-${{ github.run_id }}"
