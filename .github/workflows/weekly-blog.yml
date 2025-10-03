@@ -67,6 +67,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Add weekly blog post"
           branch: blog-post-${{ github.run_number }}
           delete-branch: true
@@ -87,3 +88,5 @@ jobs:
             **Only merge when you approve the content!**
           labels: blog,needs-review
           draft: true
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          committer: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
