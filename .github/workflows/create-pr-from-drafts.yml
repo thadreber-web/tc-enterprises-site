@@ -20,11 +20,13 @@ jobs:
           fi
           echo "Drafts found:$DRAFTS"
       - name: Create branch and PR
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Review draft blog posts"
-          branch: review/drafts-$(date +%Y%m%d%H%M%S)
+          branch: review/drafts-${{ github.run_id }}
           title: "Blog drafts for review"
           body: |-
             Automatic PR containing blog drafts for editorial review. Please approve or edit before merging.
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          committer: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
