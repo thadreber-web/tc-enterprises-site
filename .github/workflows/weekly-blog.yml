@@ -64,28 +64,11 @@ jobs:
             echo "Created: content/blog/$FILENAME"
           fi
       
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Add weekly blog post"
-          branch: blog-post-${{ github.run_number }}
-          delete-branch: true
-          title: "Weekly Blog Post - Review Required"
-          body: |
-            ## 📝 New Blog Post
-            
-            Automated weekly blog post generated from RSS feeds.
-            
-            **Please review and edit before merging!**
-            
-            - Check for accuracy
-            - Edit for tone/style
-            - Verify links work
-            - Fix any formatting issues
-            
-            Merge when ready to publish.
-          labels: blog,automated
-          draft: false
-          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
-          committer: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+      - name: Commit and push changes
+        run: |
+          cd tc-enterprises-site-autoblog/tc-enterprises-site-autoblog
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/blog/
+          git diff --staged --quiet || git commit -m "Add weekly blog post"
+          git push origin main
