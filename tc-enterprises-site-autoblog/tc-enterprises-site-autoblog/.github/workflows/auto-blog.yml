@@ -27,11 +27,22 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Check directory structure
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          ls -la
+          echo "Looking for package.json:"
+          find . -name "package.json" -type f
+
       - name: Install dependencies
         run: npm install
+        working-directory: .
 
       - name: Generate blog post
         id: generate
+        working-directory: .
         run: |
           echo "Starting blog generation..."
           
