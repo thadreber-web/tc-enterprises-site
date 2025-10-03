@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=www-data
 Group=www-data
-WorkingDirectory=/var/www/tc-enterprises.com/current
+WorkingDirectory=/var/www/tc-enterprises.com/tc-enterprises-site-autoblog/tc-enterprises-site-autoblog
 Environment=NODE_ENV=production
 Environment=PORT=3011
 # SMTP Configuration - REQUIRED for contact form
