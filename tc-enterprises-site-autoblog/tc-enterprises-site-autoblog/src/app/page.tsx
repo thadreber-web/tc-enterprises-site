@@ -51,6 +51,9 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mt-20">
+          <a id="engraving" tabIndex={-1} aria-hidden="true" />
+          <a id="logo-catalog" tabIndex={-1} aria-hidden="true" />
+          <a id="ai-platforms" tabIndex={-1} aria-hidden="true" />
           {[
             { title: 'Engraving-Ready Artwork', text: 'Clean logos, consistent formatting, zero hassle.', icon: '🎨', href: '/services' },
             { title: 'Hybrid Logo Catalog', text: 'Searchable, visual hub for reps and clients.', icon: '📁', href: '/portfolio' },
@@ -105,9 +108,9 @@ export default function Home() {
           <p className="text-muted dark:text-muted-foreground mt-2">See what our clients say about working with T&C Enterprises</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {/* Main Testimonial */}
-          <div className="card md:col-span-2 lg:col-span-2">
+        <div className="max-w-4xl mx-auto">
+          {/* Marina's Testimonial */}
+          <div className="card">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-xl">👩‍💼</span>
@@ -125,46 +128,6 @@ export default function Home() {
                   </div>
                 </figcaption>
               </div>
-            </div>
-          </div>
-
-          {/* Additional Testimonials */}
-          <div className="card">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏭</span>
-              </div>
-              <blockquote className="text-sm italic text-foreground dark:text-foreground-dark mb-3">
-                "Reliable artwork processing that our engraving team can count on every time."
-              </blockquote>
-              <div className="font-semibold text-primary text-sm">Manufacturing Operations Lead</div>
-              <div className="text-muted dark:text-muted-foreground text-xs">Industrial Engraving Company</div>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">⚡</span>
-              </div>
-              <blockquote className="text-sm italic text-foreground dark:text-foreground-dark mb-3">
-                "Quick turnaround and professional results. Exactly what we needed for our production workflow."
-              </blockquote>
-              <div className="font-semibold text-primary text-sm">Operations Manager</div>
-              <div className="text-muted dark:text-muted-foreground text-xs">Custom Manufacturing</div>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
-              </div>
-              <blockquote className="text-sm italic text-foreground dark:text-foreground-dark mb-3">
-                "Consistent quality and attention to detail. Our go-to partner for engraving preparation."
-              </blockquote>
-              <div className="font-semibold text-primary text-sm">Production Supervisor</div>
-              <div className="text-muted dark:text-muted-foreground text-xs">Signage & Engraving</div>
             </div>
           </div>
         </div>

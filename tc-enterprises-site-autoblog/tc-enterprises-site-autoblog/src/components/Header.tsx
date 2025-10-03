@@ -9,10 +9,10 @@ const nav = [
     label: 'Solutions',
     href: null,
     dropdown: [
-      { href: '/services', label: 'Artwork & Engraving', description: 'Laser-ready EPS files and engraving prep' },
-      { href: '/services', label: 'AI Automation & Chat', description: 'Grounded agents and intelligent automation' },
-      { href: '/services', label: 'Custom Software Development', description: 'Tailored solutions for your business' },
-      { href: '/services', label: 'Industry Solutions', description: 'Real Estate, RV, and Craft operations' }
+  { href: '#engraving', label: 'Artwork & Engraving', description: 'Laser-ready EPS files and engraving prep' },
+  { href: '#logo-catalog', label: 'Hybrid Logo Catalog', description: 'Searchable, visual hub for reps and clients' },
+  { href: '#ai-platforms', label: 'AI & SaaS Platforms', description: 'RealtyGenius, CraftCart, and more.' },
+  { href: '#industry', label: 'Industry Solutions', description: 'Real Estate, RV, and Craft operations' }
     ]
   },
   {
@@ -52,11 +52,7 @@ export default function Header() {
       <header className="sticky top-0 z-30 bg-background/90 dark:bg-background-dark/80 backdrop-blur border-b border-black/5 dark:border-white/10">
         <div className="container max-w-6xl flex items-center justify-between py-4">
           <Link href="/" className="flex items-center">
-            <img 
-              src="/tc-logo.svg" 
-              alt="T & C Enterprises Logo" 
-              className="h-12 w-auto"
-            />
+            <span className="font-bold text-2xl tracking-tight text-primary">T &amp; C Enterprises</span>
           </Link>
           
           {/* Desktop Navigation */}

@@ -5,7 +5,7 @@ import Parser from 'rss-parser';
 
 // This script now has to be run from the root of the Next.js project.
 // We will add a script to the root package.json to handle this.
-const CWD = 'updates-for-site/tc-enterprises-site-autoblog';
+const CWD = 'tc-enterprises-site-autoblog';
 const IDEAS_FILE_PATH = path.join(CWD, 'ideas.md');
 const OUTPUT_DIR = path.join(CWD, 'content/blog');
 const STAGING_DIR = path.join(CWD, 'content/blog/staging');

@@ -131,7 +131,18 @@ async function callGemini(prompt: string): Promise<{ reply: string; error: boole
 
 export async function POST(req: Request) {
   try {
-    const { message } = await req.json();
+    const body = await req.json();
+
+    // Support two payload shapes:
+    // - { message: "..." }
+    // - { messages: [{ role, content }, ...] } (use the last message content)
+    let message: string | undefined;
+    if (body && typeof body.message === 'string') {
+      message = body.message;
+    } else if (body && Array.isArray(body.messages) && body.messages.length) {
+      const last = body.messages[body.messages.length - 1];
+      message = last && (typeof last.content === 'string' ? last.content : undefined);
+    }
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json({ reply: "Please include a message." }, { status: 400 });
