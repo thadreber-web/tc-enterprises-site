@@ -1,0 +1,89 @@
+name: Weekly Blog Post
+
+on:
+  schedule:
+    - cron: "0 9 * * 0"  # Sundays at 9am UTC (2am PT)
+  workflow_dispatch:     # Allow manual trigger
+
+jobs:
+  generate-blog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: |
+          cd tc-enterprises-site-autoblog
+          npm install
+      
+      - name: Generate blog post
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          cd tc-enterprises-site-autoblog
+          
+          # Create directories
+          mkdir -p content/blog/staging
+          mkdir -p content/blog
+          
+          # Generate post
+          npm run blog:generate:reliable || echo "Generation failed, creating placeholder"
+          
+          # Check if any file was created
+          if [ ! "$(ls -A content/blog/staging 2>/dev/null)" ]; then
+            echo "No post generated, creating placeholder"
+            DATE=$(date +%Y-%m-%d)
+            cat > "content/blog/staging/${DATE}-weekly-update.md" << 'EOF'
+          ---
+          title: "Weekly Tech Update"
+          date: ${DATE}
+          tags: posts
+          ---
+          
+          This week's automated post. Check back soon for updates!
+          EOF
+          fi
+          
+          # Move to published
+          LATEST=$(ls -t content/blog/staging/*.md 2>/dev/null | head -n1)
+          if [ -n "$LATEST" ]; then
+            FILENAME=$(basename "$LATEST")
+            mv "$LATEST" "content/blog/$FILENAME"
+            echo "Created: content/blog/$FILENAME"
+          fi
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Add weekly blog post"
+          branch: blog-post-${{ github.run_number }}
+          delete-branch: true
+          title: "Weekly Blog Post - Review Required"
+          body: |
+            ## 📝 New Blog Post
+            
+            Automated weekly blog post generated from RSS feeds.
+            
+            **Please review and edit before merging!**
+            
+            - Check for accuracy
+            - Edit for tone/style
+            - Verify links work
+            - Fix any formatting issues
+            
+            Merge when ready to publish.
+          labels: blog,automated
+          draft: false
