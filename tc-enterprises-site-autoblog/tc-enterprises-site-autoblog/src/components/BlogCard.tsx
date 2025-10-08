@@ -7,18 +7,12 @@ interface BlogCardProps {
     excerpt?: string;
     category?: string;
     date: string;
-    content?: string;
+    readingTime?: number;
   };
 }
 
-function calculateReadingTime(content: string): number {
-  const wordsPerMinute = 200;
-  const words = content.split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
-}
-
 export default function BlogCard({ post }: BlogCardProps) {
-  const readingTime = post.content ? calculateReadingTime(post.content) : 3;
+  const readingTime = typeof post.readingTime === 'number' && post.readingTime > 0 ? post.readingTime : null;
 
   return (
     <article className="card group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -26,12 +20,14 @@ export default function BlogCard({ post }: BlogCardProps) {
         <span className="text-xs uppercase tracking-wide font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
           {post.category || 'General'}
         </span>
-        <span className="text-xs text-muted dark:text-gray-400 flex items-center">
-          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          {readingTime} min read
-        </span>
+        {readingTime !== null && (
+          <span className="text-xs text-muted dark:text-gray-400 flex items-center">
+            <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {readingTime} min read
+          </span>
+        )}
       </div>
 
       <h3 className="text-xl font-semibold mb-3 text-foreground dark:text-foreground-dark group-hover:text-primary transition-colors">

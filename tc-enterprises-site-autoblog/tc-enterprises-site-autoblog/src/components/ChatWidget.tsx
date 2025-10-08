@@ -8,6 +8,50 @@ interface ChatMessage {
   text: string;
 }
 
+function renderMessageText(text: string) {
+  const lines = text.split('\n');
+  const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
+
+  return lines.map((line, index) => {
+    const parts: (string | { label: string; url: string })[] = [];
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = linkRegex.exec(line)) !== null) {
+      if (match.index > lastIndex) {
+        parts.push(line.slice(lastIndex, match.index));
+      }
+      parts.push({ label: match[1], url: match[2] });
+      lastIndex = match.index + match[0].length;
+    }
+
+    if (lastIndex < line.length) {
+      parts.push(line.slice(lastIndex));
+    }
+
+    return (
+      <p key={index}>
+        {parts.map((part, i) => {
+          if (typeof part === 'string') {
+            return <span key={i}>{part}</span>;
+          }
+          return (
+            <a
+              key={i}
+              href={part.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-primary"
+            >
+              {part.label}
+            </a>
+          );
+        })}
+      </p>
+    );
+  });
+}
+
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [history, setHistory] = useState<ChatMessage[]>([]);
@@ -158,24 +202,24 @@ export default function ChatWidget() {
             Conversations stored locally in your browser session only
           </p>
         </div>
-        
-  <div ref={logRef} className="flex-grow overflow-y-auto p-4 space-y-4 h-96 bg-background dark:bg-background-dark custom-scrollbar">
+
+        <div ref={logRef} className="flex-grow overflow-y-auto p-4 space-y-4 h-96 bg-background dark:bg-background-dark custom-scrollbar">
           {history.map((msg, index) => (
             <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className={`rounded-lg px-4 py-2 max-w-xs text-white ${msg.role === 'user' ? 'bg-primary dark:bg-primary-dark' : 'bg-secondary dark:bg-secondary-dark text-foreground dark:text-foreground-dark'}`}> 
-                {msg.text.split('\n').map((line, i) => <p key={i}>{line}</p>)}
+              <div className={`rounded-lg px-4 py-2 max-w-xs text-white ${msg.role === 'user' ? 'bg-primary dark:bg-primary-dark' : 'bg-secondary dark:bg-secondary-dark text-foreground dark:text-foreground-dark'}`}>
+                {renderMessageText(msg.text)}
               </div>
             </div>
           ))}
         </div>
-  <form onSubmit={handleSubmit} className="flex items-center border-t p-3 bg-background dark:bg-background-dark">
+
+        <form onSubmit={handleSubmit} className="flex items-center border-t p-3 bg-background dark:bg-background-dark">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask a question..."
             className="form-input flex-grow rounded-full"
-            aria-label="Chat message input"
           />
           <button type="submit" className="ml-3 flex-shrink-0 rounded-full bg-accent px-4 py-2 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="Send message">
             Send

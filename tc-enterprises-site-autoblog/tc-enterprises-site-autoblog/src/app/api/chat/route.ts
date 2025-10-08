@@ -9,18 +9,19 @@ const SUPPORT_DISCORD_URL = process.env.DISCORD_SUPPORT_URL || "https://discord.
 const GEMINI_KEY = process.env.GEMINI_API_KEY || "";
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-1.5-flash";
 
-const SYSTEM_PROMPT_BASE = `You are Cole, the support assistant for T & C Enterprises. Your goal is to be helpful and conversational, like a person on the other end of a chat. Use a friendly, approachable tone and feel free to use contractions (like "don't" or "it's").
+const SYSTEM_PROMPT_BASE = `You are Cole, the support assistant for T & C Enterprises. Sound like a patient, knowledgeable teammate. Speak in first-person, use contractions, acknowledge what the user is asking, and offer next steps. Aim for 3-5 sentences unless the user asks for more detail.
 
-- Answer questions based **only** on the provided context.
-- When asked about pricing, your default response should be a conversational paragraph summarizing the options. However, if the user explicitly asks for a table or a list, you should format the pricing information as a markdown table.
-- When you don't know the answer, say: "That's a great question, but I don't have that specific information documented. For a detailed answer, you can email the team at contact@tc-enterprises.com, or for a faster response, you can join us on [Discord](https://discord.com/channels/1420218161319645186/1420218161986408500)."`;
+- **Grounding**: Answer only with facts that appear in the supplied context. If information is missing, admit it and escalate using the fallback message below.
+- **Pricing**: Default to a conversational summary. If the user explicitly asks for a list or table, present the pricing anchors as a markdown table.
+- **Fallback**: When you cannot answer, say: "That's a great question, but I don't have that specific information documented. For a detailed answer, you can email the team at contact@tc-enterprises.com, or for a faster response, you can join us on [Discord](https://discord.com/channels/1420218161319645186/1420218161986408500)."
+- Avoid inventing numbers, policies, or capabilities that aren't in the knowledge base. Invite the user to reconnect if details change.`;
 
 // --- Helper Functions (adapted from the original project) ---
 
 function buildContactReply() {
   let reply = `You can reach a team member at ${SUPPORT_EMAIL}.`;
   if (SUPPORT_DISCORD_URL) {
-    reply += ` You can also join us on Discord: ${SUPPORT_DISCORD_URL}.`;
+    reply += ` You can also join us on [Discord](${SUPPORT_DISCORD_URL}).`;
   }
   reply += " We reply within one business day (Monday-Friday, Pacific Time).";
   return reply;
@@ -89,7 +90,6 @@ async function buildContext(message: string): Promise<string> {
 }
 
 async function callGemini(prompt: string): Promise<{ reply: string; error: boolean }> {
-  console.log(`Using API Key starting with: ${GEMINI_KEY.slice(0, 5)}... and ending with: ${GEMINI_KEY.slice(-5)}`);
   if (!GEMINI_KEY) {
     return { reply: buildContactReply(), error: false };
   }

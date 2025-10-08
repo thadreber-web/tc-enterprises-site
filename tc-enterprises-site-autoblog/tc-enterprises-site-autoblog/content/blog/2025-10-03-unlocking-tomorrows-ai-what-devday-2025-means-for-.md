@@ -1,6 +1,7 @@
 ---
 title: "Unlocking Tomorrow's AI: What DevDay 2025 Means for Your Business"
 date: 2025-10-03
+category: AI
 tags: posts
 source: "https://techcrunch.com/2025/10/03/what-to-expect-at-openais-devday-2025-and-how-to-watch-it/"
 ---

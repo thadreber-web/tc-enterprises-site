@@ -6,7 +6,7 @@ export default function RealtyGeniusPage() {
       <header className="text-center py-12">
         <h1 className="text-4xl md:text-5xl font-bold text-primary">RealtyGenius</h1>
         <p className="max-w-3xl mx-auto mt-4 text-lg text-muted">
-          A comprehensive AI-powered real estate CRM and marketing platform designed for modern realtors.
+          An AI-assisted real estate CRM and marketing platform currently in private beta with internal stakeholders.
         </p>
       </header>
 

@@ -18,9 +18,9 @@ export default function Portfolio() {
     },
     {
       title: 'RealtyGenius',
-      status: 'Live',
+      status: 'Private Beta',
       href: '/portfolio/realtygenius',
-      description: 'Intelligent real estate analytics platform with market insights and property valuation tools.',
+      description: 'AI-assisted real estate analytics platform currently in closed testing with internal stakeholders.',
       tech: ['React', 'Data Analytics', 'API Integration', 'Real-time'],
       icon: '🏠'
     },

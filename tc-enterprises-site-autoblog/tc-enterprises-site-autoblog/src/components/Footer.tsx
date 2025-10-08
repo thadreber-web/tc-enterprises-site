@@ -23,10 +23,10 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4 text-primary">Services</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/services" className="opacity-80 hover:opacity-100 transition-opacity">Artwork & Engraving</Link></li>
-              <li><Link href="/services" className="opacity-80 hover:opacity-100 transition-opacity">AI Automation & Chat</Link></li>
-              <li><Link href="/services" className="opacity-80 hover:opacity-100 transition-opacity">Custom Software Development</Link></li>
-              <li><Link href="/services" className="opacity-80 hover:opacity-100 transition-opacity">Industry Solutions</Link></li>
+              <li><Link href="/artwork" className="opacity-80 hover:opacity-100 transition-opacity">Artwork Prep</Link></li>
+              <li><Link href="/services/software" className="opacity-80 hover:opacity-100 transition-opacity">Software & Automation</Link></li>
+              <li><Link href="/pricing#logos" className="opacity-80 hover:opacity-100 transition-opacity">Logo Pricing</Link></li>
+              <li><Link href="/pricing#software" className="opacity-80 hover:opacity-100 transition-opacity">Software Consulting</Link></li>
             </ul>
           </div>
 
@@ -36,8 +36,8 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="opacity-80 hover:opacity-100 transition-opacity">About</Link></li>
               <li><Link href="/portfolio" className="opacity-80 hover:opacity-100 transition-opacity">Portfolio</Link></li>
-              <li><Link href="/blog" className="opacity-80 hover:opacity-100 transition-opacity">Blog</Link></li>
-              <li><Link href="/contact" className="opacity-80 hover:opacity-100 transition-opacity">Contact</Link></li>
+              <li><Link href="/privacy" className="opacity-80 hover:opacity-100 transition-opacity">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="opacity-80 hover:opacity-100 transition-opacity">Terms of Service</Link></li>
             </ul>
           </div>
 
@@ -65,7 +65,8 @@ export default function Footer() {
               © {new Date().getFullYear()} T & C Enterprises. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-xs opacity-70">
-              <span>Built with ❤️ for creators</span>
+              <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
+              <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
             </div>
           </div>
           {/* Hidden developer/SEO resources */}

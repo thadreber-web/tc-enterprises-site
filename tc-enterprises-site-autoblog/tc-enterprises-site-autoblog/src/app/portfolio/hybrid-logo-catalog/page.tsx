@@ -35,7 +35,7 @@ export default function LogoCatalogPage() {
             </div>
             <div className="bg-background dark:bg-background-dark rounded-lg p-4">
                 <p className="text-3xl font-bold text-primary">SSO</p>
-                <p className="text-muted dark:text-gray-300">Google/Apple Authentication</p>
+                <p className="text-muted dark:text-gray-300">Password-Protected Access</p>
             </div>
         </div>
       </div>

@@ -1,0 +1,302 @@
+Stack assumption: Next.js (App Router preferred). If not Next.js, keep file paths but adapt syntax.
+Constraints: Keep existing theme, routing, and current contact form (no SendGrid). Blog is at site root. No public case studies yet.
+
+0) Goals
+
+Tighten IA and internal links (Home → Artwork primary; cross-link from blog posts about EPS/vector cleanup to Artwork).
+
+Add/refresh core pages: Artwork, Software & Automation, Pricing, About, Contact, Blog (existing), hidden Case Studies scaffold.
+
+Seed 3 short blog posts (editable Markdown).
+
+Create/refresh “truth docs” for Gemini chatbot.
+
+Add basic SEO (titles, descriptions, OG), sitemap if missing.
+
+Keep existing form/email flow intact.
+
+1) Information Architecture & Nav
+
+Primary nav: Home, Artwork, Software & Automation, Pricing, Blog, About, Contact.
+
+Home hero button goes to /artwork.
+
+Footer: add links to Privacy & Terms placeholders.
+
+Acceptance:
+
+Top nav renders all items.
+
+Home hero primary CTA routes to /artwork.
+
+2) Pages to Add/Confirm (content stubs below)
+
+Create these routes (App Router example):
+
+/app/artwork/page.tsx
+/app/services/software/page.tsx
+/app/pricing/page.tsx
+/app/about/page.tsx
+/app/contact/page.tsx
+/app/case-studies/page.tsx      (scaffold but HIDDEN from nav and robots)
+/app/(blog)/page.tsx or /app/blog/page.tsx (keep existing)
+/app/privacy/page.tsx
+/app/terms/page.tsx
+
+
+If using Pages Router, mirror under /pages/....
+
+3) Content Stubs (keep styling minimal; use existing theme components)
+3.1 /artwork (primary service)
+
+H1: “Vector Artwork for Engraving (Clean EPS Line-Art)”
+
+Copy blocks:
+
+What you get: EPS line-art, naming conventions, engraver-ready.
+
+Typical turnaround: same/next business day (confirm if different).
+
+What we need from you: raster/logo file + any brand notes.
+
+CTA: “Start a Logo” → /contact (or your existing submission flow).
+
+Add a short FAQ (3–5 Qs).
+
+Internal links: link to /pricing#logos, link to any blog post tagged “vector-cleanup”.
+
+3.2 /services/software
+
+Title: “Practical Software & Automation — Small Team Friendly”
+
+Sections:
+
+Short pitch (one paragraph).
+
+How We Work: Discovery → Prototype → Pilot → Production (bulleted steps).
+
+What We Build: approvals, lightweight catalogs, integrations.
+
+CTA: “Start Discovery” → /contact
+
+Pricing note: “Discovery: $X fixed. Prototyping & builds: consulting from $Y/hr.” (see Pricing section below for the numbers).
+
+3.3 /pricing
+
+H1: “Pricing”
+
+Two cards/sections:
+
+Logo Digitizing
+
+Simple: $25 (typical)
+
+Standard: $35
+
+Complex: $55+
+
+Rush add-on: +$15
+
+Notes: precise engraving-ready EPS; clear file naming; basic cleanups included.
+
+Software & Automation
+
+Discovery (fixed): $199 (adjust as you like)
+
+Consulting: $120/hr (adjust)
+
+Prototypes/Pilots quoted per scope.
+
+Anchor ids for deep links: #logos and #software.
+
+3.4 /about
+
+Short founder bio and 1–2 credibility bullets (13 years / ~15k logos).
+
+Mention core client focus (engraving workflows, BTI context without naming sensitive internals).
+
+CTA to /contact.
+
+3.5 /contact
+
+Keep existing form intact (domain email).
+
+Add note: “Prefer email? hello@tc-enterprises.com
+” (adjust to your address).
+
+Include typical response time.
+
+3.6 /case-studies (scaffold & hide)
+
+H1: “Case Studies (Coming Soon)”
+
+Hide from nav; include robots noindex.
+
+Simple list layout ready for future items.
+
+3.7 /privacy and /terms (placeholders)
+
+Minimal placeholder text with date. Link in footer.
+
+4) Blog Seeds (Markdown)
+
+Create 3 posts under your current blog content location. Examples below use /content/blog/:
+
+/content/blog/eps-vector-cleanup-basics.md
+
+---
+title: "EPS & Vector Cleanup: What ‘Engraver-Ready’ Really Means"
+description: "A quick guide to turning messy logos into clean EPS line-art suitable for laser engraving."
+date: 2025-10-07
+tags: ["vector", "eps", "engraving"]
+---
+
+When engravers say “engraver-ready,” they mean **clean, closed paths** with consistent stroke behavior, no stray points, and correct spot colors (if used).  
+**Checklist:** closed paths, simplified nodes, expanded appearances, and artifact removal.
+
+**Next:** Need this done today? See [Artwork](/artwork) or check [Logo Pricing](/pricing#logos).
+
+
+/content/blog/approval-workflows-that-dont-derail.md
+
+---
+title: "Approval Workflows That Don’t Derail Your Day"
+description: "Lightweight proofing and sign-off patterns that reduce email ping-pong."
+date: 2025-10-07
+tags: ["workflow", "approvals", "automation"]
+---
+
+Three patterns that work:  
+1) Single-link proof viewer (no attachments).  
+2) Time-boxed approvals.  
+3) One-click “approve/revise” with comment capture.
+
+Curious about a small pilot? See [Software & Automation](/services/software).
+
+
+/content/blog/small-boring-tools-big-wins.md
+
+---
+title: "Small, Boring Tools — Big Wins"
+description: "Tiny utilities that shave minutes off repeated tasks add up fast."
+date: 2025-10-07
+tags: ["automation", "ops"]
+---
+
+Automations that remove copy-paste steps, normalize files, or generate proofs quietly add up to hours saved each month.  
+Start with a **Discovery** and pick the smallest useful win: [/pricing#software](/pricing#software).
+
+
+Acceptance for blog seeds: Posts render with titles, meta descriptions, dates, tags; internal links work; at least one post links to /artwork and /pricing#logos.
+
+5) Gemini Chatbot “Truth Docs”
+
+Create a small, versioned truth pack (used to steer the bot). Store here:
+
+/content/truth/README.md
+/content/truth/business-overview.md
+/content/truth/services-artwork.md
+/content/truth/services-software.md
+/content/truth/policies.md
+
+
+/content/truth/business-overview.md (stub)
+
+# Business Overview (Truth Doc)
+- Name: T & C Enterprises (operated by Reber Ventures LLC) — confirm on site
+- Core: Vector logo digitizing for engraving; software/automation for small teams
+- Tone: practical, concise, no over-promising
+- Do not discuss internal client data; keep examples generic unless approved
+
+
+/content/truth/services-artwork.md (stub)
+
+# Artwork Service Truths
+- Deliverable: EPS line-art, engraver-ready
+- Typical turnaround: same/next business day (confirm)
+- Pricing: see site /pricing#logos — keep ranges; don’t guarantee rush availability during peak load
+- Intake: via current contact form or email (no SendGrid today)
+
+
+/content/truth/services-software.md (stub)
+
+# Software & Automation Truths
+- Discovery: fixed price (currently $199)
+- Consulting: from $120/hr
+- Engagement model: Discovery → Prototype → Pilot → Production
+- Scope boundaries: small tools, approvals, catalogs, integrations
+
+
+/content/truth/policies.md (stub)
+
+# Policies (Public-Facing)
+- Communication: email first; response within 1 business day
+- Revisions: artwork includes minor cleanups; complex redraws may incur higher tier
+- Privacy: we don’t publish client work without written permission
+
+
+Acceptance: Files exist; the bot (or any RAG) can load them; they are referenced in code where your bot expects them (leave integration pointer TODO if needed).
+
+6) SEO & Essentials
+
+Ensure each page sets <title> and <meta name="description">.
+
+Add Open Graph defaults (site name, image fallback).
+
+Generate or confirm sitemap.xml and robots.txt (allow everything except /case-studies).
+
+Add internal links: each blog post links to /artwork or /pricing.
+
+Optional (comment out if undecided):
+
+Analytics placeholder (Plausible or GA4), disabled by default.
+
+7) Implementation Notes (Next.js)
+
+If App Router: export metadata in each page.tsx, or use a shared generateMetadata.
+
+Centralize layout in /app/layout.tsx. Keep existing theme; do not alter tokens.
+
+Add noindex on /case-studies via robots in metadata.
+
+Keep contact form action as-is.
+
+8) QA / Acceptance Checklist
+
+ Nav items present and correct order.
+
+ Home → “Start Artwork” button goes to /artwork.
+
+ /pricing shows both Logo and Software sections with anchors #logos and #software.
+
+ Three blog posts render and are listed on Blog index.
+
+ Internal links work (from posts to /artwork and /pricing#logos).
+
+ Case Studies page is reachable by URL but hidden from nav and noindex.
+
+ Privacy and Terms exist and are linked in footer.
+
+ Existing contact form still functions (no SendGrid changes).
+
+ Truth docs present under /content/truth/*.
+
+9) Out of Scope (for now)
+
+DNS/SSL changes (keep current Let’s Encrypt + Cloudflare DNS-only).
+
+SendGrid or other mail provider.
+
+Detailed case studies.
+
+Analytics wiring (left commented).
+
+10) Commit Message
+
+When done, commit with:
+
+feat(site): IA refresh, pages (artwork/software/pricing/about/contact), blog seed posts, truth docs, legal placeholders; preserve theme & contact form
+
+
+End of brief.
+Proceed to create/modify files accordingly while preserving existing theme and form wiring.

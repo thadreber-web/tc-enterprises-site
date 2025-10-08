@@ -1,6 +1,7 @@
 ---
 title: "Precision in Every Line: The Power of Stroke-Only EPS for Engraving"
 date: 2025-09-28
+category: Artwork
 tags: posts
 ---
 

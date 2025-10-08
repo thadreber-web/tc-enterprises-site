@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -30,7 +30,10 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.svg'
   },
-  manifest: '/manifest.webmanifest',
+  manifest: '/manifest.webmanifest'
+}
+
+export const viewport: Viewport = {
   themeColor: '#1B2A4E'
 }
 

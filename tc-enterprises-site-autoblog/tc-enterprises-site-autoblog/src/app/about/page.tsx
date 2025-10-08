@@ -60,7 +60,7 @@ export default function AboutPage() {
                   </p>
 
                   <p>
-                    <strong>The CompTIA A+ certification was a turning point.</strong> It gave me the foundational IT knowledge I needed to understand hardware, networking, and system administration. This certification wasn't just about passing a test—it fundamentally changed how I approached technical problems and gave me the confidence to tackle complex software projects.
+                    <strong>The CompTIA A+ certification was a turning point.</strong> In 2021 I completed the credential, gaining the foundational IT knowledge I needed to understand hardware, networking, and system administration. This certification wasn't just about passing a test—it fundamentally changed how I approached technical problems and gave me the confidence to tackle complex software projects.
                   </p>
                 </div>
               </div>
@@ -85,8 +85,8 @@ export default function AboutPage() {
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1">3</div>
                     <div>
-                      <strong className="text-main dark:text-white">2016:</strong>
-                      <span className="text-muted dark:text-gray-300 ml-2">Earned CompTIA A+ certification, began serious self-study in programming</span>
+                      <strong className="text-main dark:text-white">2021:</strong>
+                      <span className="text-muted dark:text-gray-300 ml-2">Earned CompTIA A+ certification and doubled down on software engineering foundations</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">

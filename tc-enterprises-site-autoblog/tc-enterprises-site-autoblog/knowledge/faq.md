@@ -1,47 +1,50 @@
 # Client FAQ
 
+Use this document to answer common client questions in a friendly, first-person tone. Stick to the facts, acknowledge the user, and invite follow-up when needed.
+
 **What do I receive with each logo order?**  
-A laser-ready, stroke-only EPS plus a preview PNG. I retain the working AI file so future tweaks are fast.
+You get a laser-ready, stroke-only EPS plus a quick preview PNG. I keep the working AI file on hand so future tweaks are fast.
 
 **Which file types can I send?**  
-PNG, JPG, PDF, SVG, AI, EPS. Higher resolution helps, but I can usually rebuild clean vectors from rough input.
+Whatever you have—PNG, JPG, PDF, SVG, AI, or EPS. Higher resolution helps, but I can usually rebuild clean vectors from rough input.
 
 **How quickly do you turn artwork?**  
-Standard turnaround is one business day from the time I have usable art. Rush support is available.
+Most logos are back within one business day once I have usable art. If you’re in a rush, let me know and I’ll flag the request.
 
 **Do you offer rush service?**  
-Yes. Same or next business day work adds a rush fee. Weekend or after-hours work is available by agreement.
+Yes. Same or next business day work carries a rush premium, and weekend or after-hours projects are handled by agreement.
 
 **How do I submit a request?**  
-Email the job with the last name, order number, company name, best source file, and notes such as "match prior order 12345678".
+Email the job with the last name, order number, company name, best source file, and notes such as “match prior order 12345678.”
 
 **How are files named?**  
-`LastName #OrderNumber -- Company Name` so your production team can find things quickly.
+`LastName #OrderNumber -- Company Name` keeps everything searchable for your production team.
 
 **Do you check for duplicates before billing?**  
-Yes. I search existing archives first and point you to the file if I already have it.
+Every time. I search existing archives first and point you to the file if it already exists.
 
 **How will I receive the finished artwork?**  
-I email the engraving-ready EPS. Shared folders or SFTP can be arranged on request.
+I email the engraving-ready EPS. If you prefer shared folders or SFTP, I’ll set that up.
 
 **What happens if there is an error?**  
-If I introduced the issue, I fix it at no charge within three business days. Changes after approval are quoted as new work.
+If I caused the issue, I fix it at no charge within three business days. Changes after approval are quoted as new work.
 
 **Can you work with diamond-drag or other formats?**  
-Yes. I can deliver PLT/HPGL and other machine formats; just tell me your setup.
+Yes. I can deliver PLT/HPGL and other machine-specific formats—just let me know the details.
 
 **Can you clean or normalize old EPS files?**  
-Yes. Legacy cleanup removes fills, normalizes strokes, and makes sure geometry engraves cleanly.
+Absolutely. Legacy cleanup removes fills, normalizes strokes, and makes sure the geometry engraves cleanly.
 
 **Do you build software or automation tools?**  
-Yes. I scope automation, catalog, and chatbot projects with starting price anchors, then finalize the quote once we review your workflow. Expect a quick "it depends" followed by a clear plan and milestones.
+I scope automations, catalogs, and chatbot projects with clear starting price anchors, then finalize the quote once we’ve mapped your workflow. Expect a quick “it depends” followed by a concrete plan.
 
 **When are you available and how do payments work?**  
-I operate Monday through Friday (Pacific). Invoices are Net 15. Projects above $1,000 may require a 50% deposit. Rush or after-hours work is billed with the corresponding premium.
+I work Monday through Friday (Pacific). Invoices are Net 15, and projects above $1,000 may require a 50% deposit. Rush or after-hours work follows the corresponding premium.
 
-**What if my question is not listed here?**  
-Ask the assistant. If the answer is not documented, it will offer to connect you with a human on Discord or open a contact form.
+**What if my question isn’t listed here?**  
+Ask away—if it’s not documented, I’ll offer to loop in a human via Discord or the contact form so you’re never stuck.
 
 **How do I speak with someone directly?**  
-Email [contact@tc-enterprises.com](mailto:contact@tc-enterprises.com) or join the Discord support channel: https://discord.com/channels/1420218161319645186/1420218161986408500. We reply within one business day during MondayFriday, Pacific Time.
+Email [contact@tc-enterprises.com](mailto:contact@tc-enterprises.com) or hop into the Discord support channel: https://discord.com/channels/1420218161319645186/1420218161986408500. We reply within one business day, Monday–Friday, Pacific Time.
+
 

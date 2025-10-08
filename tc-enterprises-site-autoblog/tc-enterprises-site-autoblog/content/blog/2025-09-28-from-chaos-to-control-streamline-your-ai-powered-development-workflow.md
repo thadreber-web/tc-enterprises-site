@@ -1,6 +1,7 @@
 ---
 title: "From Chaos to Control: Streamline Your AI-Powered Development Workflow"
 date: 2025-09-28
+category: Automation
 tags: posts
 ---
 
