@@ -6,22 +6,23 @@ import ThemeScript from '@/components/ThemeScript'
 import ChatWidget from '@/components/ChatWidget'
 
 export const metadata: Metadata = {
-  title: 'T & C Enterprises',
-  description: 'Smart Tools. Real Results.',
+  title: 'Vector Conversion for Engraving | Gravostyle EPS & PLT Files | T&C Enterprises',
+  description: 'Production-ready vector files for Gravograph engraving equipment. Single-line EPS for laser, PLT with fill patterns for rotary. 13 years, 26,000+ proven files. Same-day available.',
   metadataBase: new URL('https://tc-enterprises.com'),
+  keywords: ['vector conversion', 'gravostyle files', 'gravograph engraving', 'laser engraving files', 'rotary engraving', 'PLT files', 'EPS files', 'trophy engraving', 'promotional products artwork', 'engraving file preparation'],
   openGraph: {
-    title: 'T & C Enterprises',
-    description: 'Turning complex workflows into simple, reliable solutions.',
+    title: 'Vector Conversion for Engraving | T&C Enterprises',
+    description: 'Production-ready vector files for Gravograph engraving. 13 years, 26,000+ files. Same-day available.',
     url: 'https://tc-enterprises.com',
-    siteName: 'T & C Enterprises',
+    siteName: 'T&C Enterprises',
     images: [{ url: '/og-default.svg', width: 1200, height: 630 }],
     locale: 'en_US',
     type: 'website'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'T & C Enterprises',
-    description: 'Smart Tools. Real Results.',
+    title: 'Vector Conversion for Engraving | T&C Enterprises',
+    description: 'Production-ready vector files for Gravograph engraving. 13 years, 26,000+ files.',
     images: ['/og-default.svg']
   },
   alternates: {

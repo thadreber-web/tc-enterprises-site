@@ -1,167 +1,299 @@
 import Link from 'next/link'
-
-export const viewport = {
-  themeColor: '#1B2A4E',
-}
+import PricingTiers from '@/components/PricingTiers'
 
 export const metadata = {
-  title: 'Pricing | T & C Enterprises',
-  description: 'Transparent pricing for logo digitizing and software & automation consulting services.',
+  title: 'Pricing | Vector Conversion for Engraving | T&C Enterprises',
+  description: 'Transparent pricing for production-ready engraving files. $40-55 per file, volume discounts available. Both EPS and PLT formats included. Same-day rush available.',
 }
-
-const logoPackages = [
-  {
-    name: 'Light Redraw',
-    price: '$65',
-    description: 'Clean source art with simple wordmarks or basic shapes that translate directly to line art.',
-    includes: ['Stroke-only EPS, AI, PLT/HPGL outputs', 'Preview PNG for quick approvals', '1 minor revision included'],
-  },
-  {
-    name: 'Typical Redraw',
-    price: '$95',
-    description: 'Moderate detail logos with layered elements that require careful translation to engraver-ready strokes.',
-    includes: ['EPS, AI, PLT/HPGL outputs', '1 minor revision included', 'Naming conventions for archive systems'],
-    featured: true,
-  },
-  {
-    name: 'Complex Emblem / Seal',
-    price: '$160+',
-    description: 'Highly detailed crests, mascots, or low-resolution scans that demand redraw, contour balance, and multi-toolpath planning.',
-    includes: ['Consultation on machine settings', 'Layered exports (fill + outline)', 'Timeline quoted per scope'],
-  },
-]
-
-const rushAddOn = {
-  title: 'Rush Add-On',
-  price: '+$30',
-  detail: 'Next-business-day delivery if accepted before 12:00 pm PT and capacity allows.',
-}
-
-const extras = [
-  {
-    title: 'Additional revisions',
-    price: '$20 each',
-  },
-  {
-    title: 'Vector pack (EPS + SVG + PDF)',
-    price: '+$15',
-  },
-]
-
-const softwareHighlights = [
-  {
-    title: 'Discovery Session',
-    price: '$199 fixed',
-    description: 'Deep dive into your workflow, pain points, and metrics. Includes prioritized roadmap and implementation options.',
-  },
-  {
-    title: 'Consulting & Build',
-    price: '$120/hr',
-    description: 'Hands-on implementation, integrations, and automation support. Quoted per milestone with transparent burn-down.',
-  },
-  {
-    title: 'Pilot & Production',
-    price: 'Quoted per scope',
-    description: 'Rollout plans, training, instrumentation, and post-launch support tailored to your team size.',
-  },
-]
 
 export default function PricingPage() {
   return (
-    <div className="space-y-24">
-      <section className="container-spacing text-center space-y-6">
-        <p className="text-sm uppercase tracking-[0.3em] font-semibold text-primary">Pricing</p>
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground dark:text-foreground-dark">Straightforward Pricing, Trusted Delivery</h1>
-        <p className="max-w-3xl mx-auto text-lg text-muted dark:text-muted-foreground">
-          Choose the service tier that fits your project. Every engagement includes clear communication, offline asset
-          storage, and fast follow-ups when you need files resent.
+    <div className="space-y-16">
+      {/* Header */}
+      <section className="text-center space-y-6 py-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground dark:text-foreground-dark">
+          Simple, Transparent Pricing
+        </h1>
+        <p className="text-xl text-muted dark:text-muted-foreground max-w-3xl mx-auto">
+          No hidden fees. No surprises. Just production-ready vector files at fair, consistent prices.
         </p>
-        <div className="flex flex-col md:flex-row gap-4 justify-center">
-          <Link href="/contact" className="btn-primary">Book a Project</Link>
-          <Link href="/artwork" className="btn-secondary">See Artwork Examples</Link>
-        </div>
       </section>
 
-      <section className="container space-y-10" id="logos">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div className="space-y-2 max-w-2xl">
-            <h2 className="text-3xl font-bold text-foreground dark:text-foreground-dark">Logo Redraw — Engraver-Ready Line Art</h2>
-            <p className="text-muted dark:text-muted-foreground">
-              Raster-to-vector conversions engineered for rotary, diamond-drag, and laser engraving. Standard delivery is
-              1–2 business days from acceptance, and each package includes one minor revision.
-            </p>
-          </div>
-          <div className="rounded-xl border border-primary/20 bg-primary/5 dark:bg-primary/10 p-4 text-sm text-primary font-medium">
-            Need it sooner? Add the <strong>Rush add-on (+$30)</strong> for next-business-day delivery when submitted before 12:00 pm PT and our schedule allows.
-          </div>
-        </div>
+      {/* Main Pricing Component */}
+      <PricingTiers />
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {logoPackages.map(pkg => (
-            <div
-              key={pkg.name}
-              className={`card h-full p-6 space-y-4 border ${pkg.featured ? 'border-primary shadow-lg shadow-primary/20' : 'border-transparent'}`}
-            >
-              <div className="space-y-1">
-                <h3 className="text-2xl font-semibold text-foreground dark:text-foreground-dark">{pkg.name}</h3>
-                <div className="text-4xl font-bold text-primary">{pkg.price}</div>
-              </div>
-              <p className="text-sm text-muted dark:text-muted-foreground">{pkg.description}</p>
-              <ul className="space-y-2 text-sm text-muted dark:text-muted-foreground list-disc pl-5">
-                {pkg.includes.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
+      {/* FAQ Section */}
+      <section className="py-12">
+        <h2 className="text-3xl font-bold text-center mb-12 text-foreground dark:text-foreground-dark">
+          Frequently Asked Questions
+        </h2>
+
+        <div className="max-w-4xl mx-auto space-y-6">
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                What file formats do you accept?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                We accept any format: JPG, PNG, GIF, PDF, AI, PSD, EPS, TIFF, BMP, and more. Even low-resolution or damaged files can be converted.
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                What do I receive?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground mb-3">
+                You receive production-ready files in the format(s) you need:
+              </p>
+              <ul className="text-sm text-muted dark:text-muted-foreground space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>EPS format</strong> for laser engraving (Gravostyle) - single-line outlines, outlined text, compound paths</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span><strong>PLT format</strong> for rotary engraving (EngraveLab) - with your choice of 7 fill patterns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Both formats included at no extra charge if you need them</span>
+                </li>
               </ul>
             </div>
-          ))}
-        </div>
-
-        <div className="card p-6 bg-secondary/10 dark:bg-secondary/20 border border-secondary/30 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h3 className="text-xl font-semibold text-secondary dark:text-secondary">{rushAddOn.title}</h3>
-            <p className="text-sm text-muted dark:text-muted-foreground">{rushAddOn.detail}</p>
           </div>
-          <div className="text-2xl font-bold text-secondary dark:text-secondary">{rushAddOn.price}</div>
-        </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
-          {extras.map(extra => (
-            <div key={extra.title} className="card p-6 space-y-2">
-              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">{extra.title}</h3>
-              <p className="text-sm text-primary font-medium">{extra.price}</p>
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                What's the difference between EPS and PLT files?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                <strong>EPS files</strong> are for laser engraving systems like Gravograph with Gravostyle software. They contain single-line vector outlines.
+              </p>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                <strong>PLT files</strong> are for rotary/mechanical engraving systems. They include fill patterns (horizontal lines, vertical lines, cross-hatch, diagonal, stipple, etc.) created in EngraveLab.
+              </p>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                Not sure which you need? Just tell us your equipment model and we'll provide the right format.
+              </p>
             </div>
-          ))}
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                What fill patterns are available for PLT files?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground mb-3">
+                We offer 7 standard fill patterns through EngraveLab:
+              </p>
+              <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted dark:text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Horizontal lines</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Vertical lines</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Cross-hatch</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Diagonal left</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Diagonal right</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Stipple/dots</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Custom patterns (upon request)</span>
+                </li>
+              </ul>
+              <p className="text-sm text-muted dark:text-muted-foreground mt-3">
+                Tell us your preference or we'll recommend the best option for your project and material.
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                How fast can you turn it around?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                Standard delivery is 24-48 hours from payment approval.
+              </p>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                Rush services available:
+              </p>
+              <ul className="text-sm text-muted dark:text-muted-foreground space-y-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>12-hour rush: $60-75</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Same-day emergency: $90-100</span>
+                </li>
+              </ul>
+              <p className="text-sm text-muted dark:text-muted-foreground mt-2">
+                We respond to quote requests within 2 hours during business hours.
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                Do you work with Gravograph equipment specifically?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                Yes! We specialize in files for Gravograph laser and rotary engraving systems with Gravostyle software. However, our files work with most engraving systems. Tell us your equipment model and we'll confirm compatibility.
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                Can you handle complex artwork or photos?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                Absolutely. We've processed 26,000+ files over 13 years, including complex logos, photographs, signatures, hand-drawn artwork, and intricate designs. If you can see it, we can convert it.
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                What if the file doesn't work in my equipment?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                100% money-back guarantee. If the file isn't production-ready, we'll revise it for free or provide a full refund. This has never happened in 26,000+ files, but the guarantee stands.
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                Do you offer volume discounts?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground mb-3">
+                Yes!
+              </p>
+              <ul className="text-sm text-muted dark:text-muted-foreground space-y-1">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>10-25 files: 10% off</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>25-50 files: 15% off</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>50+ files: 20% off</span>
+                </li>
+              </ul>
+              <p className="text-sm text-muted dark:text-muted-foreground mt-2">
+                Monthly retainer packages available for ongoing needs. <Link href="/contact" className="text-primary hover:underline">Contact us</Link> to discuss.
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                Can I get both EPS and PLT formats?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                Yes! We provide both formats at no additional charge. Many shops have both laser and rotary equipment and need files in both formats.
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                What industries do you serve?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground mb-3">
+                We primarily serve:
+              </p>
+              <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted dark:text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Trophy and awards shops</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Promotional products distributors</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Recognition product companies</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Signage companies with engraving</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Jewelry engraving</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Gift and personalization businesses</span>
+                </li>
+              </ul>
+              <p className="text-sm text-muted dark:text-muted-foreground mt-3">
+                If you engrave products, we can help.
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">
+                Do you do full-color graphic design?
+              </h3>
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                No. We specialize exclusively in single-line vector outlines for engraving equipment. We don't do multi-color design, screen printing artwork, or embroidery digitizing. This specialization is why our files work perfectly the first time.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="container space-y-10" id="software">
-        <div className="space-y-2 text-center md:text-left">
-          <h2 className="text-3xl font-bold text-foreground dark:text-foreground-dark">Software & Automation Consulting</h2>
-          <p className="text-muted dark:text-muted-foreground max-w-3xl">
-            Engage us for targeted automation wins—from hybrid logo catalogs and approval portals to custom AI-assisted workflows.
-            Each phase is scoped with budget transparency and measurable outcomes.
-          </p>
-        </div>
+      {/* Final CTA */}
+      <section className="py-12 text-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg">
+        <h2 className="text-3xl font-bold mb-4 text-foreground dark:text-foreground-dark">
+          Ready to Get Started?
+        </h2>
+        <p className="text-lg text-muted dark:text-muted-foreground mb-8 max-w-2xl mx-auto">
+          Get your first file conversion free. See the quality before you commit.
+        </p>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {softwareHighlights.map(item => (
-            <div key={item.title} className="card h-full p-6 space-y-3">
-              <h3 className="text-xl font-semibold text-foreground dark:text-foreground-dark">{item.title}</h3>
-              <div className="text-3xl font-bold text-foreground dark:text-foreground-dark">{item.price}</div>
-              <p className="text-sm text-muted dark:text-muted-foreground">{item.description}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="card p-6 space-y-3 bg-primary/5 dark:bg-primary/10 border border-primary/20">
-          <h3 className="text-lg font-semibold text-foreground dark:text-foreground-dark">Ready for a proposal?</h3>
-          <p className="text-sm text-muted dark:text-muted-foreground">
-            Most pilots wrap in 6–8 weeks with incremental releases. Book a discovery call to align scope, budget, and timeline.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4">
-            <Link href="/contact" className="btn-primary">Schedule Discovery</Link>
-            <Link href="/services/software" className="btn-secondary">Learn about our process</Link>
-          </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/contact" className="btn-primary text-center">
+            Start Free Trial
+          </Link>
+          <Link href="/" className="btn-secondary text-center">
+            Learn More
+          </Link>
         </div>
       </section>
     </div>

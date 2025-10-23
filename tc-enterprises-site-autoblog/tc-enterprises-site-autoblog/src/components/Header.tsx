@@ -6,9 +6,9 @@ import { useState } from 'react'
 
 const nav = [
   { href: '/', label: 'Home' },
-  { href: '/artwork', label: 'Artwork' },
-  { href: '/services/software', label: 'Software & Automation' },
-  { href: '/pricing', label: 'Pricing' },
+  { href: '/#pricing', label: 'Pricing' },
+  { href: '/#how-it-works', label: 'How It Works' },
+  { href: '/services', label: 'Services' },
   { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' }
@@ -45,7 +45,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link href="/contact" className="btn-primary text-sm hidden sm:block">Request a Quote</Link>
+            <Link href="/contact" className="btn-primary text-sm hidden sm:block">Get Free Trial</Link>
             <ThemeToggle />
             
             {/* Mobile Menu Button */}
@@ -97,12 +97,12 @@ export default function Header() {
                 ))}
                 
                 <div className="pt-6 border-t border-gray-200 dark:border-gray-700">
-                  <Link 
-                    href="/contact" 
+                  <Link
+                    href="/contact"
                     className="btn-primary w-full text-center block"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Request a Quote
+                    Get Free Trial
                   </Link>
                 </div>
               </nav>

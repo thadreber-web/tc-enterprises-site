@@ -1,231 +1,257 @@
-import Link from 'next/link';
+import Link from 'next/link'
+
+export const metadata = {
+  title: 'Our Services | T&C Enterprises',
+  description: 'Vector conversion for engraving professionals (primary service), plus limited IT consulting and custom software development for select clients.',
+}
 
 export default function ServicesPage() {
-  const pricingTiers = [
-    {
-      name: 'Simple',
-      price: '$30',
-      description: 'Clean source or geometric art',
-      turnaround: '1 business day',
-      features: ['Vector optimization', 'Basic cleanup', 'Format conversion'],
-      popular: false
-    },
-    {
-      name: 'Standard',
-      price: '$55',
-      description: 'Moderate cleanup or redraw',
-      turnaround: '1 business day',
-      features: ['Advanced cleanup', 'Color correction', 'Layer organization'],
-      popular: true
-    },
-    {
-      name: 'Complex',
-      price: '$95',
-      description: 'Detailed redraw or rough reference',
-      turnaround: '1-3 business days',
-      features: ['Complete redraw', 'Style matching', 'Multiple revisions'],
-      popular: false
-    },
-    {
-      name: 'Extra-complex',
-      price: 'from $150',
-      description: 'Heavy reconstruction or poor source',
-      turnaround: 'Quoted',
-      features: ['Full reconstruction', 'Creative interpretation', 'Extensive revisions'],
-      popular: false
-    }
-  ];
-
   return (
-    <div className="space-y-20">
-      {/* Hero Section */}
-      <section className="text-center py-16">
-        <p className="text-sm font-bold uppercase text-primary tracking-widest mb-4">Services</p>
-        <h1 className="text-4xl md:text-6xl font-bold text-foreground dark:text-foreground-dark mb-6 leading-tight">
-          From stroke-only logos to <span className="text-primary">grounded automation</span>
+    <div className="space-y-16">
+      {/* Header */}
+      <section className="text-center space-y-6 py-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground dark:text-foreground-dark">
+          Our Services
         </h1>
-        <p className="max-w-4xl mx-auto text-xl text-muted dark:text-muted-foreground leading-relaxed">
-          We help engraving, real estate, and specialty operations teams keep work moving. Artwork stays clean, catalogs stay organized, and automation projects launch with clear guardrails.
+        <p className="text-xl text-muted dark:text-muted-foreground max-w-3xl mx-auto">
+          Specialized solutions for engraving professionals and small businesses
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-          <Link href="/contact" className="btn-primary text-center">Start a project</Link>
-          <a href="#pricing" className="btn-secondary text-center">View pricing</a>
-        </div>
       </section>
 
-      {/* Core Focus Areas */}
-      <section className="py-16">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground dark:text-foreground-dark mb-12">Core focus areas</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300">
-              <div className="text-4xl mb-4">🎨</div>
-              <h3 className="text-xl font-bold text-primary mb-3">Artwork prep</h3>
-              <p className="text-muted dark:text-gray-300 leading-relaxed">
-                Send the rough input, get back laser-ready EPS. We keep editable AI files on hand so revisions are fast.
-              </p>
+      {/* Primary Service - Vector Conversion */}
+      <section className="py-12 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg">
+        <div className="space-y-6">
+          <div className="text-center">
+            <div className="inline-block bg-primary text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
+              PRIMARY SERVICE
             </div>
-            <div className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300">
-              <div className="text-4xl mb-4">📚</div>
-              <h3 className="text-xl font-bold text-primary mb-3">Hybrid logo catalog</h3>
-              <p className="text-muted dark:text-gray-300 leading-relaxed">
-                A searchable, permission-aware library that links proofs, approvals, and download history.
-              </p>
-            </div>
-            <div className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300">
-              <div className="text-4xl mb-4">🤖</div>
-              <h3 className="text-xl font-bold text-primary mb-3">Automation & chat</h3>
-              <p className="text-muted dark:text-gray-300 leading-relaxed">
-                Grounded agents that answer FAQs, quote pricing anchors, and hand off to humans through Discord when needed.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-16">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-foreground-dark mb-4">Engrave-ready artwork pricing</h2>
-            <p className="text-xl text-muted dark:text-gray-300 max-w-2xl mx-auto">
-              Choose the tier that matches complexity. When in doubt, we round up so production stays on schedule.
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-foreground-dark">
+              Vector Conversion for Engraving
+            </h2>
+            <p className="text-lg text-muted dark:text-muted-foreground mt-4 max-w-3xl mx-auto">
+              Production-ready EPS and PLT files for laser and rotary engraving equipment. Our specialty and primary focus.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pricingTiers.map((tier) => (
-              <div
-                key={tier.name}
-                className={`card relative group hover:shadow-xl transition-all duration-300 ${
-                  tier.popular ? 'ring-2 ring-primary border-primary' : 'hover:border-primary/80'
-                }`}
-              >
-                {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-foreground dark:text-foreground-dark mb-2">{tier.name}</h3>
-                  <div className="text-3xl font-bold text-primary mb-1">{tier.price}</div>
-                  <p className="text-sm text-muted dark:text-gray-400">{tier.description}</p>
-                </div>
-
-                <div className="mb-6">
-                  <div className="text-sm font-medium text-foreground dark:text-foreground-dark mb-2">Turnaround: {tier.turnaround}</div>
-                  <ul className="space-y-2">
-                    {tier.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-sm text-muted dark:text-gray-300">
-                        <span className="text-primary mr-2">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <Link
-                  href="/contact"
-                  className={`block text-center py-3 px-4 rounded-lg font-medium transition-colors ${
-                    tier.popular
-                      ? 'bg-primary text-white hover:bg-primary/90'
-                      : 'bg-secondary/10 text-secondary hover:bg-secondary/20 border border-secondary/20'
-                  }`}
-                >
-                  Get Started
-                </Link>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div className="card bg-background dark:bg-background-dark">
+              <div className="p-6 space-y-3">
+                <div className="text-3xl text-primary">✓</div>
+                <h3 className="font-semibold text-foreground dark:text-foreground-dark">13 Years Experience</h3>
+                <p className="text-sm text-muted dark:text-muted-foreground">26,000+ files processed with proven quality</p>
               </div>
-            ))}
+            </div>
+
+            <div className="card bg-background dark:bg-background-dark">
+              <div className="p-6 space-y-3">
+                <div className="text-3xl text-primary">✓</div>
+                <h3 className="font-semibold text-foreground dark:text-foreground-dark">Gravostyle Specialist</h3>
+                <p className="text-sm text-muted dark:text-muted-foreground">Optimized for Gravograph laser and rotary systems</p>
+              </div>
+            </div>
+
+            <div className="card bg-background dark:bg-background-dark">
+              <div className="p-6 space-y-3">
+                <div className="text-3xl text-primary">✓</div>
+                <h3 className="font-semibold text-foreground dark:text-foreground-dark">Dual Format Delivery</h3>
+                <p className="text-sm text-muted dark:text-muted-foreground">EPS for laser + PLT with 7 fill patterns for rotary</p>
+              </div>
+            </div>
+
+            <div className="card bg-background dark:bg-background-dark">
+              <div className="p-6 space-y-3">
+                <div className="text-3xl text-primary">✓</div>
+                <h3 className="font-semibold text-foreground dark:text-foreground-dark">Fast Turnaround</h3>
+                <p className="text-sm text-muted dark:text-muted-foreground">24-48 hours standard, same-day rush available</p>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted dark:text-gray-400 max-w-2xl mx-auto">
-              *Provider-caused fixes are free within three business days. Updates after approval are priced as new work.
-            </p>
+          <div className="card max-w-4xl mx-auto bg-background dark:bg-background-dark">
+            <div className="p-6">
+              <h3 className="text-lg font-semibold mb-4 text-foreground dark:text-foreground-dark">What You Get:</h3>
+              <ul className="grid md:grid-cols-2 gap-3 text-sm text-muted dark:text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Single-line outlines (EPS) for laser engraving</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>PLT files with fill patterns for rotary engraving</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>100% production-ready guarantee</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Unlimited revisions until satisfied</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Both formats included at no extra charge</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Volume discounts available</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <Link href="/" className="btn-primary text-center">
+              Learn More About Vector Conversion
+            </Link>
+            <Link href="/pricing" className="btn-secondary text-center">
+              View Pricing
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Software & Automation */}
-      <section className="py-16">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground dark:text-foreground-dark mb-12">Software and automation anchors</h2>
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6">
-              <p className="text-lg text-muted dark:text-gray-300 leading-relaxed">
-                Custom builds start with a scoped discovery sprint. Once we understand your workflow we map milestones, integrations, and budget.
+      {/* Divider */}
+      <div className="border-t border-muted/20"></div>
+
+      {/* Additional Services */}
+      <section className="py-12">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-foreground dark:text-foreground-dark mb-4">
+            Additional Services
+          </h2>
+          <p className="text-muted dark:text-muted-foreground max-w-3xl mx-auto">
+            The following services are offered on a <strong>limited basis</strong> to existing clients and select projects.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* IT Consulting */}
+          <div className="card">
+            <div className="p-8 space-y-4">
+              <div className="flex items-start justify-between">
+                <h3 className="text-2xl font-bold text-foreground dark:text-foreground-dark">IT Consulting & Support</h3>
+                <div className="bg-secondary/20 text-secondary px-3 py-1 rounded text-xs font-semibold">LIMITED</div>
+              </div>
+
+              <p className="text-sm text-muted dark:text-muted-foreground">
+                <strong className="text-foreground dark:text-foreground-dark">CompTIA A+ Certified</strong>
               </p>
 
-              <div className="card">
-                <h3 className="text-xl font-bold text-primary mb-4">Pricing Structure</h3>
-                <ul className="space-y-3 text-muted dark:text-gray-300">
-                  <li className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700">
-                    <span>Discovery and technical plan</span>
-                    <span className="font-semibold text-primary">from $300</span>
+              <p className="text-muted dark:text-muted-foreground">
+                Small business technology support for network setup, troubleshooting, and system optimization.
+              </p>
+
+              <div className="space-y-3">
+                <h4 className="font-semibold text-foreground dark:text-foreground-dark">Services Include:</h4>
+                <ul className="space-y-2 text-sm text-muted dark:text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>Network setup and configuration</span>
                   </li>
-                  <li className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700">
-                    <span>Prototype (single workflow)</span>
-                    <span className="font-semibold text-primary">from $1,500</span>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>Wired/wireless infrastructure</span>
                   </li>
-                  <li className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700">
-                    <span>Pilot (two to four features)</span>
-                    <span className="font-semibold text-primary">from $4,000</span>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>System troubleshooting and repair</span>
                   </li>
-                  <li className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700">
-                    <span>Production modules</span>
-                    <span className="font-semibold text-primary">from $2,500 each</span>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>Hardware/software installation</span>
                   </li>
-                  <li className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700">
-                    <span>Support retainers</span>
-                    <span className="font-semibold text-primary">from $500/month</span>
-                  </li>
-                  <li className="flex justify-between items-center py-2">
-                    <span>SaaS access (where offered)</span>
-                    <span className="font-semibold text-primary">$49-$199 per tenant</span>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>Technology consulting</span>
                   </li>
                 </ul>
               </div>
-            </div>
 
-            <div className="card">
-              <h3 className="text-xl font-bold text-primary mb-6">Current pilots & projects</h3>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5 border border-secondary/10">
-                  <span className="text-2xl">🏠</span>
-                  <div>
-                    <h4 className="font-semibold text-foreground dark:text-foreground-dark">RealtyGenius</h4>
-                    <p className="text-sm text-muted dark:text-gray-300">Transaction workflows for real estate teams</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5 border border-secondary/10">
-                  <span className="text-2xl">🧶</span>
-                  <div>
-                    <h4 className="font-semibold text-foreground dark:text-foreground-dark">Crochet Pattern Studio</h4>
-                    <p className="text-sm text-muted dark:text-gray-300">Pattern generation with guardrails</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5 border border-secondary/10">
-                  <span className="text-2xl">🛒</span>
-                  <div>
-                    <h4 className="font-semibold text-foreground dark:text-foreground-dark">CraftCart</h4>
-                    <p className="text-sm text-muted dark:text-gray-300">Storefront tooling with automated proofs</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5 border border-secondary/10">
-                  <span className="text-2xl">🚐</span>
-                  <div>
-                    <h4 className="font-semibold text-foreground dark:text-foreground-dark">RV Ops Stack</h4>
-                    <p className="text-sm text-muted dark:text-gray-300">Scheduling and maintenance for mobile service fleets</p>
-                  </div>
-                </div>
+              <div className="pt-4 border-t border-muted/20">
+                <p className="text-sm font-semibold text-foreground dark:text-foreground-dark">Availability:</p>
+                <p className="text-sm text-muted dark:text-muted-foreground">Limited basis for existing clients</p>
               </div>
+
+              <Link href="/contact" className="btn-secondary w-full text-center block">
+                Contact for Availability
+              </Link>
             </div>
+          </div>
+
+          {/* Custom Development */}
+          <div className="card">
+            <div className="p-8 space-y-4">
+              <div className="flex items-start justify-between">
+                <h3 className="text-2xl font-bold text-foreground dark:text-foreground-dark">Custom Development & Automation</h3>
+                <div className="bg-secondary/20 text-secondary px-3 py-1 rounded text-xs font-semibold">SELECT PROJECTS</div>
+              </div>
+
+              <p className="text-muted dark:text-muted-foreground">
+                Specialized workflow automation and custom software solutions for unique business needs.
+              </p>
+
+              <div className="space-y-3">
+                <h4 className="font-semibold text-foreground dark:text-foreground-dark">Capabilities:</h4>
+                <ul className="space-y-2 text-sm text-muted dark:text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>Custom workflow automation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>Business process optimization</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>Specialized software development</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>Database integration</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">•</span>
+                    <span>AI-assisted workflows</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-4 border-t border-muted/20">
+                <p className="text-sm font-semibold text-foreground dark:text-foreground-dark">Availability:</p>
+                <p className="text-sm text-muted dark:text-muted-foreground">Select projects only</p>
+              </div>
+
+              <Link href="/contact" className="btn-secondary w-full text-center block">
+                Contact for Consultation
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Focus Statement */}
+      <section className="py-12 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg text-center">
+        <div className="max-w-3xl mx-auto space-y-6 px-6">
+          <h2 className="text-3xl font-bold text-foreground dark:text-foreground-dark">
+            Our Focus
+          </h2>
+          <p className="text-lg text-muted dark:text-muted-foreground leading-relaxed">
+            While we offer additional services, <strong className="text-foreground dark:text-foreground-dark">vector conversion for engraving is our primary focus and expertise</strong>. This specialization is why we consistently deliver production-ready files that work the first time, every time.
+          </p>
+          <p className="text-muted dark:text-muted-foreground">
+            If you need engraving file preparation, you're in the right place. For other services, please contact us to discuss availability and fit.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+            <Link href="/" className="btn-primary text-center">
+              Back to Vector Conversion
+            </Link>
+            <Link href="/contact" className="btn-secondary text-center">
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>
     </div>
-  );
+  )
 }
