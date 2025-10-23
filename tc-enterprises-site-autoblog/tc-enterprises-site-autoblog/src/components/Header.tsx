@@ -6,11 +6,10 @@ import { useState } from 'react'
 
 const nav = [
   { href: '/', label: 'Home' },
-  { href: '/#pricing', label: 'Pricing' },
-  { href: '/#how-it-works', label: 'How It Works' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/how-it-works', label: 'How It Works' },
   { href: '/services', label: 'Services' },
   { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' }
 ]
 
