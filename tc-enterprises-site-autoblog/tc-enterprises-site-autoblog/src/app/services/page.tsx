@@ -182,12 +182,12 @@ export default function ServicesPage() {
           <div className="card">
             <div className="p-8 space-y-4">
               <div className="flex items-start justify-between">
-                <h3 className="text-2xl font-bold text-foreground dark:text-foreground-dark">Custom Development & Automation</h3>
+                <h3 className="text-2xl font-bold text-foreground dark:text-foreground-dark">Software Development & AI Automation</h3>
                 <div className="bg-secondary/20 text-secondary px-3 py-1 rounded text-xs font-semibold">SELECT PROJECTS</div>
               </div>
 
               <p className="text-muted dark:text-muted-foreground">
-                Specialized workflow automation and custom software solutions for unique business needs.
+                Custom software development, AI automation, and modern web applications built with Next.js, React, and TypeScript.
               </p>
 
               <div className="space-y-3">
@@ -195,35 +195,40 @@ export default function ServicesPage() {
                 <ul className="space-y-2 text-sm text-muted dark:text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="text-secondary">•</span>
-                    <span>Custom workflow automation</span>
+                    <span>Custom chatbots & AI agents</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-secondary">•</span>
-                    <span>Business process optimization</span>
+                    <span>Full-stack web applications</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-secondary">•</span>
-                    <span>Specialized software development</span>
+                    <span>Workflow automation</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-secondary">•</span>
-                    <span>Database integration</span>
+                    <span>API development & integrations</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-secondary">•</span>
-                    <span>AI-assisted workflows</span>
+                    <span>E-commerce solutions</span>
                   </li>
                 </ul>
               </div>
 
               <div className="pt-4 border-t border-muted/20">
-                <p className="text-sm font-semibold text-foreground dark:text-foreground-dark">Availability:</p>
-                <p className="text-sm text-muted dark:text-muted-foreground">Select projects only</p>
+                <p className="text-sm font-semibold text-foreground dark:text-foreground-dark">Pricing:</p>
+                <p className="text-sm text-muted dark:text-muted-foreground">$5,000 - $50,000+ depending on scope</p>
               </div>
 
-              <Link href="/contact" className="btn-secondary w-full text-center block">
-                Contact for Consultation
-              </Link>
+              <div className="flex flex-col gap-3">
+                <Link href="/services/software" className="btn-primary w-full text-center block">
+                  View Software Services
+                </Link>
+                <Link href="/contact?service=software" className="btn-secondary w-full text-center block">
+                  Start a Conversation
+                </Link>
+              </div>
             </div>
           </div>
         </div>
