@@ -2,37 +2,65 @@
 
 Use this to ground any pricing conversations. Speak in first-person, stay friendly, and invite the user to reach out if they need a custom quote. Mention that scope can shift numbers.
 
-## Engrave-Ready Artwork (per logo)
+## Vector Conversion for Engraving (PRIMARY SERVICE)
 
-Match these tiers to the pricing page cards. Round up if a project sits between two levels.
+Standard pricing for production-ready engraving files. Both EPS (laser) and PLT (rotary) formats included at no extra charge.
 
-- **Light Redraw** – clean source art or simple geometry: **$65**
-- **Typical Redraw** – moderate layering or redraw work: **$95**
-- **Complex Emblem / Seal** – detailed crests, mascots, or rough scans: **$160+** (quoted per scope)
+### Standard Files (per file)
+- **Simple/Clean Source** – basic logos, text, simple shapes: **$40**
+- **Typical Logo** – moderate detail, standard complexity: **$45**
+- **Complex Design** – detailed emblems, intricate artwork, difficult source files: **$55+** (quoted based on complexity)
 
-### Rush and After-Hours
+**What's Included:**
+- Single-line EPS file for laser engraving (Gravostyle compatible)
+- PLT file with 7 fill patterns for rotary engraving
+- Both formats work with Gravograph equipment
+- Unlimited revisions until you're satisfied
+- 100% production-ready guarantee
 
-- Next-business-day delivery (accepted before 12:00 pm PT): **+ $30**
-- Weekend or after-hours work is by agreement and quoted before I start.
+### Turnaround Options
+- **Standard (24-48 hours):** Included in base price
+- **Rush (12 hours):** **$60-75** depending on file complexity
+- **Same-Day Emergency:** **$90-100** depending on file complexity
 
-### Add-ons
+### Volume Discounts
+- **6-10 files:** 10% off total order
+- **11-25 files:** 10% off total order
+- **26-50 files:** 15% off total order
+- **50+ files or monthly retainer:** 20% off - contact for custom pricing
 
-- Additional revisions beyond the included tweak: **$20 each**
-- Vector pack (EPS + SVG + PDF bundle): **+ $15**
-- If I caused an issue, fixes are free within three business days. Changes after approval are quoted as new work.
+### Free Trial
+- First-time customers can request ONE free trial file to test our quality
+- No credit card required
+- See exactly what you'll receive before committing to paid orders
 
-## Legacy File Cleanup
+### Guarantee
+- Files are guaranteed production-ready or we fix them free
+- If we made an error, corrections are free within 3 business days
+- Changes after your approval are quoted as new work
 
-Starts at **$25** per file. A common bundle is **$200** per 10 files—adjust as needed once we review the archive.
+## Additional Services (Limited Availability)
 
-## Software & Automation Anchors
+### IT Consulting & Support
+- **Hourly rate:** $85/hour
+- **Project-based:** Quoted based on scope
+- **Limited availability** - existing clients and select local businesses only
 
-Match these with the Software & Automation cards on the pricing page. Share them as starting points, then remind folks we’ll scope specifics together.
+### Software Development & AI Automation
+These are SELECT PROJECTS ONLY with minimum budgets:
 
-- **Discovery Session** – roadmap + implementation options: **$199 fixed**
-- **Consulting & Build** – hands-on implementation and automation support: **$120/hr** (milestones quoted with transparent burn-down)
-- **Pilot & Production** – rollout plans, training, instrumentation: **Quoted per scope**
-- **Maintenance/support retainer** – ongoing monitoring and tweaks: **from $500/mo** (~5–6 hours, overage billed hourly)
-- **SaaS access when applicable** – tenant or user licensing: **$49–$199/mo**
+- **Custom chatbot/AI agent:** $5,000 - $15,000
+- **Web application:** $10,000 - $50,000+
+- **API integration:** $3,000 - $10,000
+- **Workflow automation:** $5,000 - $20,000
+- **Discovery session:** $500 (credited toward project if accepted)
 
-> Always remind folks these are starting points. Encourage them to email [contact@tc-enterprises.com](mailto:contact@tc-enterprises.com) or hop on Discord if they want a tailored proposal.
+Timeline:
+- Small projects: 2-4 weeks
+- Medium projects: 1-3 months
+- Large projects: 3-6+ months
+- Rush available for additional fee
+
+**Important:** Vector conversion pricing above is our primary focus. Software projects require $5,000+ budgets and are taken on a select basis only.
+
+> Always remind folks these are starting points. Encourage them to email [contact@tc-enterprises.com](mailto:contact@tc-enterprises.com) or use the contact form for a custom quote.
