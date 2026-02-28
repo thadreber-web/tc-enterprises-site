@@ -18,4 +18,4 @@ When engravers say “engraver-ready,” they mean **clean, closed paths** with 
 
 That process is the difference between noisy chatter marks and a smooth sweep. If you’re up against a tight deadline, let us handle the rebuild and send you stroke-only EPS plus plot-ready PLT/HPGL files.
 
-**Next:** Need this done today? See [`Artwork`](/artwork) or check [`Logo Pricing`](/pricing#logos).
+**Next:** Need this done today? See [`Vector Conversion`](/vector-conversion) or check [`Pricing`](/vector-conversion#pricing).

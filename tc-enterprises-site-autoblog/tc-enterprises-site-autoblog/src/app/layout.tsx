@@ -6,13 +6,13 @@ import ThemeScript from '@/components/ThemeScript'
 import ChatWidget from '@/components/ChatWidget'
 
 export const metadata: Metadata = {
-  title: 'Vector Conversion for Engraving | Gravostyle EPS & PLT Files | T&C Enterprises',
-  description: 'Production-ready vector files for Gravograph engraving equipment. Single-line EPS for laser, PLT with fill patterns for rotary. 13 years, 26,000+ proven files. Same-day available.',
+  title: 'T&C Enterprises | Vector Conversion, Software & AI Solutions',
+  description: '13 years turning complex problems into clean solutions. Production-ready vector files for engraving, custom software development, and AI automation.',
   metadataBase: new URL('https://tc-enterprises.com'),
-  keywords: ['vector conversion', 'gravostyle files', 'gravograph engraving', 'laser engraving files', 'rotary engraving', 'PLT files', 'EPS files', 'trophy engraving', 'promotional products artwork', 'engraving file preparation'],
+  keywords: ['vector conversion', 'engraving files', 'gravostyle', 'gravograph', 'PLT files', 'EPS files', 'custom software', 'AI automation', 'T&C Enterprises'],
   openGraph: {
-    title: 'Vector Conversion for Engraving | T&C Enterprises',
-    description: 'Production-ready vector files for Gravograph engraving. 13 years, 26,000+ files. Same-day available.',
+    title: 'T&C Enterprises | Vector Conversion, Software & AI Solutions',
+    description: '13 years turning complex problems into clean solutions. Vector conversion for engraving, custom software, and AI research.',
     url: 'https://tc-enterprises.com',
     siteName: 'T&C Enterprises',
     images: [{ url: '/og-default.svg', width: 1200, height: 630 }],
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vector Conversion for Engraving | T&C Enterprises',
-    description: 'Production-ready vector files for Gravograph engraving. 13 years, 26,000+ files.',
+    title: 'T&C Enterprises | Vector Conversion, Software & AI Solutions',
+    description: '13 years turning complex problems into clean solutions. Vector conversion, software, and AI.',
     images: ['/og-default.svg']
   },
   alternates: {

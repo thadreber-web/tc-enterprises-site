@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [posts, cats] = await Promise.all([getAllPosts(), getCategories()])
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    '', '/about', '/services', '/portfolio', '/blog', '/contact'
+    '', '/vector-conversion', '/projects', '/about', '/blog', '/contact'
   ].map((p) => ({
     url: site + p,
     lastModified: new Date(),

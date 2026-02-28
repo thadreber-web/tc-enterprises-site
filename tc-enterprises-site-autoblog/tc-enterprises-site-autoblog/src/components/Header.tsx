@@ -6,10 +6,10 @@ import { useState } from 'react'
 
 const nav = [
   { href: '/', label: 'Home' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/how-it-works', label: 'How It Works' },
-  { href: '/services', label: 'Services' },
+  { href: '/vector-conversion', label: 'Vector Conversion' },
+  { href: '/projects', label: 'Projects' },
   { href: '/blog', label: 'Blog' },
+  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' }
 ]
 
@@ -44,7 +44,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link href="/contact" className="btn-primary text-sm hidden sm:block">Get Free Trial</Link>
+            <Link href="/contact" className="btn-primary text-sm hidden sm:block">Get a Quote</Link>
             <ThemeToggle />
             
             {/* Mobile Menu Button */}
@@ -101,7 +101,7 @@ export default function Header() {
                     className="btn-primary w-full text-center block"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Get Free Trial
+                    Get a Quote
                   </Link>
                 </div>
               </nav>

@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: Request) {
   try {
@@ -41,33 +43,15 @@ export async function POST(req: Request) {
 
     // Honeypot & time-to-submit
     if (honeypot) return NextResponse.json({ ok: true }) // silently pretend success
-    // Removed time check as form doesn't send ts
 
     if (!name || !email || !message) {
       return NextResponse.json({ ok: false, error: 'Missing fields.' }, { status: 400 })
     }
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: String(process.env.SMTP_SECURE || 'false') === 'true',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
-      }
-      ,
-      // Optional: allow disabling strict TLS verification when SMTP server
-      // presents a certificate that doesn't match DNS (temporary/workaround).
-      // Set SMTP_INSECURE=true in /etc/tc-enterprises.env to disable verification.
-      tls: {
-        rejectUnauthorized: process.env.SMTP_INSECURE === 'true' ? false : true
-      }
-    })
+    const to = process.env.CONTACT_TO || 'contact@tc-enterprises.com'
+    const from = process.env.RESEND_FROM || 'noreply@tc-enterprises.com'
 
-    const to = process.env.CONTACT_TO || process.env.SMTP_USER
-    const from = process.env.CONTACT_FROM || process.env.SMTP_USER
-
-    await transporter.sendMail({
+    await resend.emails.send({
       to,
       from,
       subject: `Website Contact: ${name} - ${projectType || 'General Inquiry'}`,

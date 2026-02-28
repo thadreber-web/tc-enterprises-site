@@ -9,4 +9,4 @@ excerpt: "Automation isn’t always flashy. The quiet helpers save hours across 
 
 Automations that remove copy-paste steps, normalize files, or generate proofs quietly add up to hours saved each month. The tools don’t have to be fancy—just reliable.
 
-Start with a **Discovery** to surface where to invest, then pick the smallest useful win: [`Pricing`](/pricing#software).
+Start with a **Discovery** to surface where to invest, then pick the smallest useful win: [`Get in touch`](/contact).

@@ -15,4 +15,4 @@ Three patterns that work:
 
 Each keeps production moving without searching through inbox labyrinths. Pair them with automated nudges and your team stays aligned even when the queue is full.
 
-Curious about a small pilot? See [`Software & Automation`](/services/software).
+Curious about a small pilot? See [`Projects`](/projects) or [`Contact Us`](/contact).

@@ -47,10 +47,10 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-3">
           <h2 className="text-2xl font-semibold text-foreground dark:text-foreground-dark">Storage &amp; Security</h2>
           <p>
-            Contact emails are currently handled through Gmail. Project artwork and delivered files are stored
-            offline on redundant external drives located in Washington State. We do not share your files with
-            subcontractors or third-party services unless you provide written permission. As we migrate to an
-            in-house mail server, emails will also be archived locally under the same security practices.
+            Inbound emails are routed through Cloudflare Email Routing to our business inbox. Contact form
+            submissions are delivered via Resend, a transactional email service. Project artwork and delivered
+            files are stored offline on redundant external drives located in Washington State. We do not share
+            your files with subcontractors or third-party services unless you provide written permission.
           </p>
         </section>
 
