@@ -1,22 +1,20 @@
-# Auto detect text files and normalize line endings
 * text=auto
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.jsx text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
 
-# Ensure common text files are normalized
-*.md text
-*.html text
-*.css text
-*.js text
-*.json text
-
-# Treat images as binary
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.gif binary
 *.svg binary
-
-# Keep scripts with LF endings
-*.sh text eol=lf
-
-# Proprietary files
-LICENSE text
+*.ico binary
+*.pdf binary

@@ -25,14 +25,14 @@ jobs:
       
       - name: Install dependencies
         run: |
-          cd tc-enterprises-site-autoblog/tc-enterprises-site-autoblog
+          cd tc-enterprises-site-autoblog
           npm install
       
       - name: Generate blog post
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          cd tc-enterprises-site-autoblog/tc-enterprises-site-autoblog
+          cd tc-enterprises-site-autoblog
           
           # Create directories
           mkdir -p content/blog/staging
@@ -45,7 +45,7 @@ jobs:
           if [ ! "$(ls -A content/blog/staging 2>/dev/null)" ]; then
             echo "No post generated, creating placeholder"
             DATE=$(date +%Y-%m-%d)
-            cat > "content/blog/staging/${DATE}-weekly-update.md" << EOF
+            cat > "content/blog/staging/${DATE}-weekly-update.md" << 'EOF'
           ---
           title: "Weekly Tech Update"
           date: ${DATE}
@@ -71,22 +71,19 @@ jobs:
           commit-message: "Add weekly blog post"
           branch: blog-post-${{ github.run_number }}
           delete-branch: true
-          title: "Weekly Blog Post - REVIEW REQUIRED"
+          title: "Weekly Blog Post - Review Required"
           body: |
-            ## 📝 New Blog Post - DO NOT AUTO-MERGE
+            ## 📝 New Blog Post
             
-            **REVIEW THIS BEFORE MERGING!**
+            Automated weekly blog post generated from RSS feeds.
             
-            Generated blog post from RSS feeds.
+            **Please review and edit before merging!**
             
-            ### Review Checklist:
-            - [ ] Check for accuracy
-            - [ ] Edit for tone/style  
-            - [ ] Verify links work
-            - [ ] Fix formatting issues
+            - Check for accuracy
+            - Edit for tone/style
+            - Verify links work
+            - Fix any formatting issues
             
-            **Only merge when you approve the content!**
-          labels: blog,needs-review
-          draft: true
-          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
-          committer: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+            Merge when ready to publish.
+          labels: blog,automated
+          draft: false
