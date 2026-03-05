@@ -24,8 +24,13 @@
     "nodemailer": "^6.9.13",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "rehype-raw": "^7.0.0",
+    "rehype-stringify": "^10.0.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.0.0",
+    "unified": "^11.0.0",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {

@@ -1,8 +1,11 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeRaw from 'rehype-raw'
+import rehypeStringify from 'rehype-stringify'
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog')
 
@@ -43,7 +46,12 @@ export async function getPost(slug: string) {
   const full = path.join(BLOG_DIR, `${slug}.md`)
   const raw = fs.readFileSync(full, 'utf8')
   const { data, content } = matter(raw)
-  const processed = await remark().use(html, { allowDangerousHtml: true }).process(content)
+  const processed = await unified()
+    .use(remarkParse)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeStringify)
+    .process(content)
   return {
     meta: {
       slug,
