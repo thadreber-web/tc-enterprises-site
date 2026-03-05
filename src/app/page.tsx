@@ -51,9 +51,6 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mt-20">
-          <a id="engraving" tabIndex={-1} aria-hidden="true" />
-          <a id="logo-catalog" tabIndex={-1} aria-hidden="true" />
-          <a id="ai-platforms" tabIndex={-1} aria-hidden="true" />
           {[
             { title: 'Engraving-Ready Artwork', text: 'Clean logos, consistent formatting, zero hassle.', icon: '🎨', href: '/services' },
             { title: 'Hybrid Logo Catalog', text: 'Searchable, visual hub for reps and clients.', icon: '📁', href: '/portfolio' },

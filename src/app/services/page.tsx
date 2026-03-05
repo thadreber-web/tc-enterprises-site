@@ -58,7 +58,7 @@ export default function ServicesPage() {
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground dark:text-foreground-dark mb-12">Core focus areas</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300">
+            <div id="artwork" className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300 scroll-mt-24">
               <div className="text-4xl mb-4">🎨</div>
               <h3 className="text-xl font-bold text-primary mb-3">Artwork prep</h3>
               <p className="text-muted dark:text-gray-300 leading-relaxed">
@@ -72,7 +72,7 @@ export default function ServicesPage() {
                 A searchable, permission-aware library that links proofs, approvals, and download history.
               </p>
             </div>
-            <div className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300">
+            <div id="automation" className="card group hover:border-primary/80 hover:shadow-xl transition-all duration-300 scroll-mt-24">
               <div className="text-4xl mb-4">🤖</div>
               <h3 className="text-xl font-bold text-primary mb-3">Automation & chat</h3>
               <p className="text-muted dark:text-gray-300 leading-relaxed">

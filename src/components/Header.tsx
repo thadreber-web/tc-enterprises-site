@@ -9,10 +9,10 @@ const nav = [
     label: 'Solutions',
     href: null,
     dropdown: [
-  { href: '#engraving', label: 'Artwork & Engraving', description: 'Laser-ready EPS files and engraving prep' },
-  { href: '#logo-catalog', label: 'Hybrid Logo Catalog', description: 'Searchable, visual hub for reps and clients' },
-  { href: '#ai-platforms', label: 'AI & SaaS Platforms', description: 'RealtyGenius, CraftCart, and more.' },
-  { href: '#industry', label: 'Industry Solutions', description: 'Real Estate, RV, and Craft operations' }
+  { href: '/services#artwork', label: 'Artwork & Engraving', description: 'Laser-ready EPS files and engraving prep' },
+  { href: '/portfolio/hybrid-logo-catalog', label: 'Hybrid Logo Catalog', description: 'Searchable, visual hub for reps and clients' },
+  { href: '/services#automation', label: 'AI & SaaS Platforms', description: 'RealtyGenius, CraftCart, and more.' },
+  { href: '/portfolio', label: 'Industry Solutions', description: 'Real Estate, RV, and Craft operations' }
     ]
   },
   {
