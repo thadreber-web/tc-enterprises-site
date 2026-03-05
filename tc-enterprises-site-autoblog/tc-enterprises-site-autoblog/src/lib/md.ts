@@ -43,7 +43,7 @@ export async function getPost(slug: string) {
   const full = path.join(BLOG_DIR, `${slug}.md`)
   const raw = fs.readFileSync(full, 'utf8')
   const { data, content } = matter(raw)
-  const processed = await remark().use(html).process(content)
+  const processed = await remark().use(html, { allowDangerousHtml: true }).process(content)
   return {
     meta: {
       slug,
