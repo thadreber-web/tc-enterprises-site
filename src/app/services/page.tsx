@@ -1,41 +1,6 @@
 import Link from 'next/link';
 
 export default function ServicesPage() {
-  const pricingTiers = [
-    {
-      name: 'Simple',
-      price: '$30',
-      description: 'Clean source or geometric art',
-      turnaround: '1 business day',
-      features: ['Vector optimization', 'Basic cleanup', 'Format conversion'],
-      popular: false
-    },
-    {
-      name: 'Standard',
-      price: '$55',
-      description: 'Moderate cleanup or redraw',
-      turnaround: '1 business day',
-      features: ['Advanced cleanup', 'Color correction', 'Layer organization'],
-      popular: true
-    },
-    {
-      name: 'Complex',
-      price: '$95',
-      description: 'Detailed redraw or rough reference',
-      turnaround: '1-3 business days',
-      features: ['Complete redraw', 'Style matching', 'Multiple revisions'],
-      popular: false
-    },
-    {
-      name: 'Extra-complex',
-      price: 'from $150',
-      description: 'Heavy reconstruction or poor source',
-      turnaround: 'Quoted',
-      features: ['Full reconstruction', 'Creative interpretation', 'Extensive revisions'],
-      popular: false
-    }
-  ];
-
   return (
     <div className="space-y-20">
       {/* Hero Section */}
@@ -85,66 +50,57 @@ export default function ServicesPage() {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-16">
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-foreground-dark mb-4">Engrave-ready artwork pricing</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-foreground-dark mb-4">Every logo is different. Send yours for a free quote.</h2>
             <p className="text-xl text-muted dark:text-gray-300 max-w-2xl mx-auto">
-              Choose the tier that matches complexity. When in doubt, we round up so production stays on schedule.
+              Email your image and we&apos;ll reply with a quote — usually within a few hours during business hours.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pricingTiers.map((tier) => (
-              <div
-                key={tier.name}
-                className={`card relative group hover:shadow-xl transition-all duration-300 ${
-                  tier.popular ? 'ring-2 ring-primary border-primary' : 'hover:border-primary/80'
-                }`}
-              >
-                {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-foreground dark:text-foreground-dark mb-2">{tier.name}</h3>
-                  <div className="text-3xl font-bold text-primary mb-1">{tier.price}</div>
-                  <p className="text-sm text-muted dark:text-gray-400">{tier.description}</p>
-                </div>
-
-                <div className="mb-6">
-                  <div className="text-sm font-medium text-foreground dark:text-foreground-dark mb-2">Turnaround: {tier.turnaround}</div>
-                  <ul className="space-y-2">
-                    {tier.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-sm text-muted dark:text-gray-300">
-                        <span className="text-primary mr-2">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <Link
-                  href="/contact"
-                  className={`block text-center py-3 px-4 rounded-lg font-medium transition-colors ${
-                    tier.popular
-                      ? 'bg-primary text-white hover:bg-primary/90'
-                      : 'bg-secondary/10 text-secondary hover:bg-secondary/20 border border-secondary/20'
-                  }`}
-                >
-                  Get Started
-                </Link>
+          <div className="card hover:shadow-xl transition-all duration-300">
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-bold text-primary mb-4">How it works</h3>
+                <ol className="space-y-3 text-muted dark:text-gray-300">
+                  <li className="flex items-start">
+                    <span className="font-bold text-primary mr-3 mt-0.5">1.</span>
+                    <span>Email your logo or artwork to <a href="mailto:contact@tc-enterprises.com" className="text-primary font-medium hover:underline">contact@tc-enterprises.com</a> — an image attachment is required for a quote.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="font-bold text-primary mr-3 mt-0.5">2.</span>
+                    <span>We review and reply with a price, usually within a few hours during business hours.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="font-bold text-primary mr-3 mt-0.5">3.</span>
+                    <span>Once accepted, expect your finished file within 48 business hours.</span>
+                  </li>
+                </ol>
               </div>
-            ))}
-          </div>
 
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted dark:text-gray-400 max-w-2xl mx-auto">
-              *Provider-caused fixes are free within three business days. Updates after approval are priced as new work.
-            </p>
+              <div>
+                <h3 className="text-xl font-bold text-primary mb-4">What you get</h3>
+                <ul className="space-y-2 text-muted dark:text-gray-300">
+                  <li className="flex items-center">
+                    <span className="text-primary mr-2">&#10003;</span>
+                    Delivered in EPS, PLT, and other formats on request
+                  </li>
+                  <li className="flex items-center">
+                    <span className="text-primary mr-2">&#10003;</span>
+                    Fixes for provider-caused errors are always free
+                  </li>
+                </ul>
+              </div>
+
+              <div className="text-center pt-4">
+                <a
+                  href="mailto:contact@tc-enterprises.com"
+                  className="inline-block bg-primary text-white py-3 px-8 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                >
+                  Send your logo for a quote
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
